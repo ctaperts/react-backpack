@@ -1,0 +1,8 @@
+%something {
+  border: 1px solid #ff6fc3;
+}
+
+* {
+  @extend %something;
+  background: #a4f3ff;
+}
