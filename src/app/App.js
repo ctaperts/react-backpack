@@ -8,8 +8,6 @@ import About from '../containers/About/About';
 import Contact from '../containers/Contact/Contact';
 
 export default class App extends Component {
-
-
   render = () => {
     const routes = (
       <Switch>

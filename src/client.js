@@ -4,7 +4,7 @@ import { BrowserRouter } from 'react-router-dom';
 const App = require('./app/App').default;
 
 ReactDOM.hydrate((
-	<BrowserRouter>
-		<App />
-	</BrowserRouter>
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>
 ), document.getElementById('root'));

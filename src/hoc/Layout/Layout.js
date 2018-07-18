@@ -3,6 +3,8 @@ import Helmet from "react-helmet";
 
 import Aux from '../Aux/Aux';
 import Toolbar from '../../components/Navigation/Toolbar/Toolbar';
+import classes from './Layout.scss';
+
 // import Footer from '../../components/UI/Footer/Footer';
 
 class Layout extends Component {
