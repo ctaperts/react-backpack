@@ -39,7 +39,7 @@ module.exports = [
                                 options: {
                                     modules: true,
                                     importLoaders: 1,
-                                    localIdentName: '[local]',
+                                    localIdentName: '[name]__[local]___[hash:base64:5]',
                                     sourceMap: true,
                                 }
                             },
@@ -93,7 +93,7 @@ module.exports = [
                             options: {
                                 modules: true,
                                 importLoaders: 1,
-                                localIdentName: '[local]',
+                                localIdentName: '[name]__[local]___[hash:base64:5]',
                                 sourceMap: false
                             }
                         },
