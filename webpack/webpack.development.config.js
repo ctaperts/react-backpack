@@ -19,6 +19,7 @@ const commonLoader = [
 module.exports = [
   {
     name: 'client',
+    mode: 'development',
     target: 'web',
     entry: `${srcDir}/client.js`,
     output: {
@@ -63,6 +64,7 @@ module.exports = [
   },
   {
     name: 'server',
+    mode: 'development',
     target: 'node',
     entry: `${srcDir}/server.js`,
     output: {

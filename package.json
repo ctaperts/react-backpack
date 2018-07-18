@@ -5,10 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "NODE_ENV=development node ./express/development.js",
-    "prodBuild": "NODE_ENV=production webpack -p --config ./webpack/webpack.production.config.js --progress --profile --colors",
-    "prod": "NODE_ENV=production webpack -p --config ./webpack/webpack.production.config.js --progress --profile --colors && node ./express/production.js",
-    "pm2": "NODE_ENV=production pm2 start ./express/production.js",
+    "dev": "node ./express/development.js",
+    "prodBuild": "webpack -p --config ./webpack/webpack.production.config.js --progress --profile --colors",
+    "prod": "webpack -p --config ./webpack/webpack.production.config.js --progress --profile --colors && node ./express/production.js",
+    "pm2": "pm2 start ./express/production.js",
     "clean": "rm -rf node_modules; rm package-lock.json; rm -rf dist; npm i"
   },
   "author": "",

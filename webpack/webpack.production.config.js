@@ -11,6 +11,7 @@ const srcDir = path.join(__dirname, '../src');
 module.exports = [
   {
     name: 'client',
+    mode: 'production',
     target: 'web',
     entry: `${srcDir}/client.js`,
     output: {
@@ -65,19 +66,12 @@ module.exports = [
         }
       }),
       new CleanWebpackPlugin(distDir),
-      // new webpack.optimize.UglifyJsPlugin({
-      // compress: {
-      // warnings: false,
-      // screw_ie8: true,
-      // drop_console: true,
-      // drop_debugger: true
-      // }
-      // }),
       new webpack.optimize.OccurrenceOrderPlugin(),
     ]
   },
   {
     name: 'server',
+    mode: 'production',
     target: 'node',
     entry: `${srcDir}/server.js`,
     output: {
