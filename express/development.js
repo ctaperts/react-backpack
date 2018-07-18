@@ -9,7 +9,7 @@ const webpackHotMiddleware = require('webpack-hot-middleware');
 const webpackHotServerMiddleware = require('webpack-hot-server-middleware');
 
 app.use(webpackDevMiddleware(compiler, {
-    publicPath: "/dist/",
+  publicPath: "/dist/",
 }));
 app.use(webpackHotMiddleware(compiler.compilers.find(compiler => compiler.name === 'client')));
 app.use(webpackHotServerMiddleware(compiler));
@@ -17,12 +17,12 @@ app.use(webpackHotServerMiddleware(compiler));
 const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, error => {
-    if (error) {
+  if (error) {
 
-        return console.error(error);
+    return console.error(error);
 
-    } else {
+  } else {
 
-        console.log(`Development Express server running at http://localhost:${PORT}`);
-    }
+    console.log(`Development Express server running at http://localhost:${PORT}`);
+  }
 });

@@ -12,12 +12,12 @@ app.use(ServerRenderer(Stats));
 const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, error => {
-    if (error) {
+  if (error) {
 
-        return console.error(error);
+    return console.error(error);
 
-    } else {
+  } else {
 
-        console.log(`Production Express server running at http://localhost:${PORT}`);
-    }
+    console.log(`Production Express server running at http://localhost:${PORT}`);
+  }
 });
