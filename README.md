@@ -1,3 +1,25 @@
-Use Yarn for Development:
+# React Backpack
 
-`yarn dev`
+![alt text](https://media3.giphy.com/media/mE5AQ8dqoH4Z2/giphy.gif)
+
+## Includes
+- Server Side Rendering
+- post css modules
+- helmet
+
+## Run
+```
+# Development
+npm run dev
+# Build Production
+npm run prodBuild
+# Run Production
+npm run prod
+# Run pm2
+npm run pm2
+```
+
+## TODO
+Add:
+- react transition groups
+- relay
