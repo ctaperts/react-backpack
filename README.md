@@ -4,7 +4,7 @@
 
 ## Includes
 - Server Side Rendering
-- post css modules
+- scss modules
 - helmet
 
 ## Run
