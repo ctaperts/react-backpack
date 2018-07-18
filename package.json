@@ -1,7 +1,7 @@
 {
-  "name": "react-app",
+  "name": "react-backpack",
   "version": "1.0.0",
-  "description": "",
+  "description": "A starter kit for react with SSR, CSS Modules and more!",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
