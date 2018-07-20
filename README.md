@@ -4,7 +4,8 @@
 
 ## Includes
 - Server Side Rendering
-- SCSS modules
+- CSS modules
+- SASS
 - Helmet
 - Hot Reloading
 
