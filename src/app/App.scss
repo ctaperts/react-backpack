@@ -10,14 +10,17 @@
 .fadeTranslate-exit {
   opacity: 1;
   transform: translate(0, 0);
+  z-index: -1;
 }
 
 .fadeTranslate-exit.fadeTranslate-exit-active {
   opacity: 0;
-  transform: translate(0, 3vh);
-  transition: opacity 1000ms ease-in, transform 1000ms ease-in-out;
+  transform: translate(0, -10vh);
+  transition: opacity 1000ms, transform 1000ms;
+  z-index: -1;
 }
 
 .fix-container {
   position: fixed;
 }
+

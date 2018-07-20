@@ -25,12 +25,14 @@ const Routes = withRouter(({ location }) => (
   <div>
 	<TransitionGroup>
       <PageFade key={location.key}>
-	    <Switch location={location}>
-	      <Route exact path="/" component={Home} />
-	      <Route exact path="/about" component={About} />
-	      <Route path="/contact" component={Contact}/>
-	      <Redirect to="/" />
-	    </Switch>
+        <section className="fix-container">
+          <Switch location={location}>
+            <Route exact path="/" component={Home} />
+            <Route exact path="/about" component={About} />
+            <Route path="/contact" component={Contact}/>
+            <Redirect to="/" />
+          </Switch>
+        </section>
       </PageFade>
     </TransitionGroup>
   </div>
@@ -40,12 +42,12 @@ const Routes = withRouter(({ location }) => (
 export default class App extends Component {
 
   render = () => {
-	return (
-	  <section>
-		<Layout>
-		  <Routes/>
-		</Layout>
-	  </section>
-	)
+    return (
+      <section>
+        <Layout>
+          <Routes/>
+        </Layout>
+      </section>
+    )
   }
 }
