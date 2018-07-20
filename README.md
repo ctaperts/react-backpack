@@ -4,8 +4,9 @@
 
 ## Includes
 - Server Side Rendering
-- scss modules
-- helmet
+- SCSS modules
+- Helmet
+- Hot Reloading
 
 ## Run
 ```

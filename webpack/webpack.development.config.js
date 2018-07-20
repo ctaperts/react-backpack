@@ -1,5 +1,6 @@
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+var webpack = require('webpack');
 
 const distDir = path.join(__dirname, '../dist');
 const srcDir = path.join(__dirname, '../src');
@@ -21,7 +22,10 @@ module.exports = [
     name: 'client',
     mode: 'development',
     target: 'web',
-    entry: `${srcDir}/client.js`,
+    entry: [
+      'webpack-hot-middleware/client',
+      `${srcDir}/client.js`,
+    ],
     output: {
       path: path.join(__dirname, 'dist'),
       filename: 'client.js',
@@ -56,6 +60,8 @@ module.exports = [
       ]),
     },
     plugins: [
+      new webpack.HotModuleReplacementPlugin(),
+      new webpack.NoEmitOnErrorsPlugin(),
       new ExtractTextPlugin({
         filename: 'styles.css',
         allChunks: true
