@@ -1,15 +1,14 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 import classes from './Jumbotron.scss';
 
-class Jumbotron extends Component {
-  render() {
+const Jumbotron = (props) => {
     return (
-      <div className={classes.jumbotron}>
-        <img src="//placehold.it/1024x700/449955/FFF" />
+      <div className={props.size === "small" ? classes.jumbotronSmall : classes.jumbotronLarge}>
+        <img src={props.imageURL} />
+        {props.children}
       </div>
     )
-  }
 }
 
 export default Jumbotron;

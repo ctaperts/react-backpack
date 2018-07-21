@@ -1,12 +1,25 @@
-.jumbotron {
+.jumbotronLarge {
   max-height: 30%;
   min-width: 100%;
   width: 100%;
   position: relative;
 
 }
-.jumbotron img {
+.jumbotronLarge img {
   max-height: 800px;
+  width: 700vh;
+  max-width: 100%;
+}
+
+.jumbotronSmall {
+  max-height: 30%;
+  min-width: 100%;
+  width: 100%;
+  position: relative;
+
+}
+.jumbotronSmall img {
+  max-height: 400px;
   width: 200vh;
   max-width: 100%;
 }

@@ -9,7 +9,7 @@ class Home extends Component {
         return (
             <div className={classes.component}>
                 <Helmet title="Home Title"/>
-                <Jumbotron />
+                <Jumbotron imageURL="//placehold.it/1024x700/449955/FFF" />
                 <div className={classes.TextBox}>Hello, World</div>
             </div>
         );
