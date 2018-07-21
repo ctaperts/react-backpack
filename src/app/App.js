@@ -25,7 +25,7 @@ const Routes = withRouter(({ location }) => (
   <div>
 	<TransitionGroup>
       <PageFade key={location.key}>
-        <section className="fix-container">
+        <section className="fix-container" style={{marginTop:'16px'}}>
           <Switch location={location}>
             <Route exact path="/" component={Home} />
             <Route exact path="/about" component={About} />
