@@ -4,12 +4,13 @@ import Helmet from "react-helmet";
 import Jumbotron from '../../components/Jumbotron/Jumbotron';
 import Button from '../../components/Button/Button';
 import Textbox from '../../components/Textbox/Textbox';
+import Aux from '../../hoc/Aux/Aux';
 import classes from './Home.scss';
 
 class Home extends Component {
   render = () => {
 	return (
-	  <div className={classes.component}>
+	  <Aux>
 		<Helmet title="Home Title"/>
 		<Jumbotron imageURL="//placehold.it/1024x700/449955/FFF?text=|">
 		  <div className={classes.CenterBox}><Button btnType="Success">Back</Button></div>
@@ -26,7 +27,9 @@ class Home extends Component {
 		<Textbox>
 		  Lorem ipsum dolor sit amet, consectetur adipisicing elit. At quia doloremque tempora placeat officia ex obcaecati tenetur deserunt repudiandae praesentium. Lorem ipsum dolor sit amet, consectetur adipisicing elit.
 		</Textbox>
-	  </div>
+		<Jumbotron imageURL="//placehold.it/1024x700/333/555?text=backpack" size="small">
+		</Jumbotron>
+	  </Aux>
 	);
   }
 }
