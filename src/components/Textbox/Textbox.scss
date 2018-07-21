@@ -1,8 +1,7 @@
 .Section {
   top: 6px;
   display: block;
-  max-width: 1000px;
-  width: 70%;
+  max-width: 400px;
   background: #708090;
   margin: 0 auto 1em;
   height: 150px;
@@ -22,4 +21,18 @@
   position: relative;
   top: 50%;
   transform: perspective(1px) translateY(-50%);
+}
+
+@media (min-width: 500px) {
+  .Section {
+    width: 80%;
+    max-width: 700px;
+  }
+}
+
+@media (min-width: 1000px) {
+  .Section {
+    width: 60%;
+    max-width: 1000px;
+  }
 }
