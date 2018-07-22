@@ -5,7 +5,7 @@ import Aux from '../Aux/Aux';
 import Toolbar from '../../components/Navigation/Toolbar/Toolbar';
 import classes from './Layout.scss';
 
-// import Footer from '../../components/UI/Footer/Footer';
+// import Footer from '../../components/Footer/Footer';
 
 class Layout extends Component {
 
@@ -14,10 +14,10 @@ class Layout extends Component {
       <Aux>
         <Helmet
           htmlAttributes={{lang: "en", amp: undefined}} // amp takes no value
-          titleTemplate="%s | React App"
+          titleTemplate="%s | Backpack"
           titleAttributes={{itemprop: "name", lang: "en"}}
           meta={[
-            {name: "description", content: "Server side rendering example"},
+            {name: "description", content: "Backpack site"},
             {name: "viewport", content: "width=device-width, initial-scale=1"},
           ]}
           link={[{rel: "stylesheet", href: "/dist/styles.css"}]}

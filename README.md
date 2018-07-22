@@ -4,8 +4,11 @@
 
 ## Includes
 - Server Side Rendering
-- scss modules
-- helmet
+- CSS modules
+- SASS
+- Helmet
+- Hot Reloading
+- React Transition Groups
 
 ## Run
 ```
@@ -21,5 +24,9 @@ npm run pm2
 
 ## TODO
 Add:
-- react transition groups
+- optimize build for production
 - relay
+- typescript
+
+## Issues
+- HMR does not work with scss

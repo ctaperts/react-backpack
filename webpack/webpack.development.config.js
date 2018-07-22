@@ -1,8 +1,11 @@
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+var webpack = require('webpack');
 
 const distDir = path.join(__dirname, '../dist');
 const srcDir = path.join(__dirname, '../src');
+
+require("babel-polyfill");
 
 const commonLoader = [
   {
@@ -21,7 +24,11 @@ module.exports = [
     name: 'client',
     mode: 'development',
     target: 'web',
-    entry: `${srcDir}/client.js`,
+    entry: [
+      'babel-polyfill',
+      'webpack-hot-middleware/client',
+      `${srcDir}/client.js`,
+    ],
     output: {
       path: path.join(__dirname, 'dist'),
       filename: 'client.js',
@@ -44,6 +51,7 @@ module.exports = [
                   modules: true,
                   importLoaders: 1,
                   localIdentName: '[name]__[local]___[hash:base64:5]',
+                  // localIdentName: '[local]',
                   sourceMap: true,
                 }
               },
@@ -56,6 +64,8 @@ module.exports = [
       ]),
     },
     plugins: [
+      new webpack.HotModuleReplacementPlugin(),
+      new webpack.NoEmitOnErrorsPlugin(),
       new ExtractTextPlugin({
         filename: 'styles.css',
         allChunks: true
@@ -66,7 +76,9 @@ module.exports = [
     name: 'server',
     mode: 'development',
     target: 'node',
-    entry: `${srcDir}/server.js`,
+    entry: [
+      `${srcDir}/server.js`,
+    ],
     output: {
       path: path.join(__dirname, 'dist'),
       filename: 'server.js',
@@ -90,6 +102,7 @@ module.exports = [
                 modules: true,
                 importLoaders: 1,
                 localIdentName: '[name]__[local]___[hash:base64:5]',
+                // localIdentName: '[local]',
                 sourceMap: false
               }
             },

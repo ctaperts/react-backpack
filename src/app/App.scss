@@ -1,0 +1,49 @@
+body {
+  height:100%;
+  margin:0;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+body::-webkit-scrollbar {
+  width: 0.6em;
+  background-color: #F5F5F5;
+}
+
+body::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+  background-color: #F5F5F5;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: grey;
+  outline: 1px solid slategrey;
+}
+
+.Enter {
+  opacity: 0;
+}
+
+.Enter.EnterActive {
+  opacity: 1;
+  transition: opacity 100ms;
+}
+
+.Exit {
+  opacity: 1;
+  transform: translate(0, 0);
+  z-index: -1;
+}
+
+.Exit.ExitActive {
+  opacity: 0;
+  transform: translate(0vh, 10vh);
+  transition: opacity 1000ms, transform 1000ms;
+  z-index: 1;
+}
+
+.FixContainer {
+  position: absolute;
+  margin-top: 16px;
+}
+

@@ -1,0 +1,28 @@
+.Items {
+    width: 500px;
+    margin: 10px auto 0;
+}
+
+/* Transition styles */
+
+.Enter {
+    opacity: 0.01;
+    transform: translate(-40px, 0)
+}
+
+.EnterActive {
+    opacity: 1;
+    transform: translate(0, 0);
+    transition: all 500ms ease-in;
+}
+
+.Exit {
+    opacity: 1;
+    transform: translate(0, 0)
+}
+
+.ExitActive {
+    opacity: 0.01;
+    transform: translate(40px, 0);
+    transition: all 500ms ease-in;
+}
