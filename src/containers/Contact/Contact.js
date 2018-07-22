@@ -12,7 +12,7 @@ class Contact extends Component {
 	return (
 	  <Aux>
 		<Helmet title="Contact Title"/>
-		<Jumbotron imageURL="//placehold.it/1024x700/333/555?text=backpack" size="small">
+		<Jumbotron imageURL="//placehold.it/1024x700/333/555?text=Contact Us" size="small">
 		</Jumbotron>
 		<Textbox backgroundColor="tan" color="blue">
 		  Lorem ipsum dolor sit amet, consectetur adipisicing elit. At quia doloremque tempora placeat officia ex obcaecati tenetur deserunt repudiandae praesentium. Lorem ipsum dolor sit amet, consectetur adipisicing elit.

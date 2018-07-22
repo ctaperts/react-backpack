@@ -20,29 +20,30 @@ body::-webkit-scrollbar-thumb {
   outline: 1px solid slategrey;
 }
 
-.fadeTranslate-enter {
+.Enter {
   opacity: 0;
 }
 
-.fadeTranslate-enter.fadeTranslate-enter-active {
+.Enter.EnterActive {
   opacity: 1;
   transition: opacity 100ms;
 }
 
-.fadeTranslate-exit {
+.Exit {
   opacity: 1;
   transform: translate(0, 0);
   z-index: -1;
 }
 
-.fadeTranslate-exit.fadeTranslate-exit-active {
+.Exit.ExitActive {
   opacity: 0;
   transform: translate(0vh, 10vh);
-  transition: opacity 500ms, transform 500ms;
+  transition: opacity 1000ms, transform 1000ms;
   z-index: 1;
 }
 
-.fix-container {
+.FixContainer {
   position: absolute;
+  margin-top: 16px;
 }
 

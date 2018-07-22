@@ -2,7 +2,6 @@ export default ({ markup, helmet }) => {
   return `<!DOCTYPE html>
             <html ${helmet.htmlAttributes.toString()}>
                 <head>
-                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
                     ${helmet.title.toString()}
                     ${helmet.meta.toString()}
                     ${helmet.link.toString()}

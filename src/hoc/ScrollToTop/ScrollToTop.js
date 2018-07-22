@@ -4,7 +4,7 @@ import { withRouter } from 'react-router';
 const timeout = ms => new Promise(res => setTimeout(res, ms))
 
 async function delay () {
-  await timeout(200)
+  await timeout(500)
   window.scrollTo(0, 0)
 }
 

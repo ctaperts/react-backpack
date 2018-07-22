@@ -10,6 +10,9 @@ class Toolbar extends Component {
             <div className={classes.Nav}>
               <ul>
                 <li>
+                  <Link to={'/to-do'}>To Do App</Link>
+                </li>
+                <li>
                   <Link to={'/blog'}>Blog</Link>
                 </li>
                 <li>

@@ -5,14 +5,14 @@ import Jumbotron from '../../components/Jumbotron/Jumbotron';
 import Button from '../../components/Button/Button';
 import Textbox from '../../components/Textbox/Textbox';
 import Aux from '../../hoc/Aux/Aux';
-import classes from './Blog.scss';
+import classes from './Blogs.scss';
 
-class Blog extends Component {
+class Blogs extends Component {
   render = () => {
 	return (
 	  <Aux>
-		<Helmet title="Blog Title"/>
-		<Jumbotron imageURL="//placehold.it/1024x700/333/555?text=backpack" size="small">
+		<Helmet title="Blogs Title"/>
+		<Jumbotron imageURL="//placehold.it/1024x700/333/555?text=Blog" size="small">
 		</Jumbotron>
 		<Textbox backgroundColor="yellow" color="black">
 		  Lorem ipsum dolor sit amet, consectetur adipisicing elit. At quia doloremque tempora placeat officia ex obcaecati tenetur deserunt repudiandae praesentium. Lorem ipsum dolor sit amet, consectetur adipisicing elit.
@@ -25,4 +25,4 @@ class Blog extends Component {
   }
 }
 
-export default Blog;
+export default Blogs;

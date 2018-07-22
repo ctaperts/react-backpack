@@ -57,6 +57,17 @@
   background-color: red;
 }
 
+.Clear {
+  color: black;
+  background-color: #62ac1500;
+  border-color: black;
+  transform-style: preserve-3d;
+}
+
+.Clear:hover {
+  background-color: black;
+}
+
 .Grey {
   color: #fff;
   background-color: #444444;
