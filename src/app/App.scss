@@ -26,7 +26,7 @@ body::-webkit-scrollbar-thumb {
 
 .fadeTranslate-enter.fadeTranslate-enter-active {
   opacity: 1;
-  transition: opacity 500ms ease-in;
+  transition: opacity 100ms;
 }
 
 .fadeTranslate-exit {
@@ -37,8 +37,9 @@ body::-webkit-scrollbar-thumb {
 
 .fadeTranslate-exit.fadeTranslate-exit-active {
   opacity: 0;
+  transform: translate(0vh, 10vh);
   transition: opacity 500ms, transform 500ms;
-  z-index: -1;
+  z-index: 1;
 }
 
 .fix-container {

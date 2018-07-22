@@ -9,6 +9,8 @@ import About from '../containers/About/About';
 import Contact from '../containers/Contact/Contact';
 import Blog from '../containers/Blog/Blog';
 
+import ScrollToTop from '../hoc/ScrollToTop/ScrollToTop';
+
 import './App.scss';
 
 const PageFade = (props) => (
@@ -47,7 +49,9 @@ export default class App extends Component {
     return (
       <section>
         <Layout>
-          <Routes/>
+          <ScrollToTop>
+            <Routes/>
+          </ScrollToTop>
         </Layout>
       </section>
     )

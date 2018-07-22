@@ -5,6 +5,8 @@ var webpack = require('webpack');
 const distDir = path.join(__dirname, '../dist');
 const srcDir = path.join(__dirname, '../src');
 
+require("babel-polyfill");
+
 const commonLoader = [
   {
     test: /\.(js|jsx)$/,
@@ -23,6 +25,7 @@ module.exports = [
     mode: 'development',
     target: 'web',
     entry: [
+      'babel-polyfill',
       'webpack-hot-middleware/client',
       `${srcDir}/client.js`,
     ],
@@ -73,7 +76,9 @@ module.exports = [
     name: 'server',
     mode: 'development',
     target: 'node',
-    entry: `${srcDir}/server.js`,
+    entry: [
+      `${srcDir}/server.js`,
+    ],
     output: {
       path: path.join(__dirname, 'dist'),
       filename: 'server.js',
