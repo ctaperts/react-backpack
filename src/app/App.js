@@ -7,6 +7,7 @@ import Layout from '../hoc/Layout/Layout'
 import Home from '../containers/Home/Home';
 import About from '../containers/About/About';
 import Contact from '../containers/Contact/Contact';
+import Blog from '../containers/Blog/Blog';
 
 import './App.scss';
 
@@ -30,6 +31,7 @@ const Routes = withRouter(({ location }) => (
             <Route exact path="/" component={Home} />
             <Route exact path="/about" component={About} />
             <Route path="/contact" component={Contact}/>
+            <Route path="/blog" component={Blog}/>
             <Redirect to="/" />
           </Switch>
         </section>
