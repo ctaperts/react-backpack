@@ -18,6 +18,6 @@ app.listen(PORT, error => {
 
   } else {
 
-    console.log(`Production Express server running at http://localhost:${PORT}`);
+    console.log(`Prod server http://localhost:${PORT}`);
   }
 });

@@ -26,6 +26,7 @@ npm run pm2
 Add:
 - optimize build for production
 - relay
+- PWA
 - typescript
 
 ## Issues
