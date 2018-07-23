@@ -30,7 +30,7 @@ class Home extends Component {
 		  Lorem ipsum dolor sit amet, consectetur adipisicing elit. At quia doloremque tempora placeat officia ex obcaecati tenetur deserunt repudiandae praesentium. Lorem ipsum dolor sit amet, consectetur adipisicing elit.
 		</Textbox>
 		<Textbox>
-          <img src={rtgRoutesExamplJSImage} alt="" />
+          {/* <img src={rtgRoutesExamplJSImage} alt="" /> */}
 		  Lorem ipsum dolor sit amet, consectetur adipisicing elit. At quia doloremque tempora placeat officia ex obcaecati tenetur deserunt repudiandae praesentium. Lorem ipsum dolor sit amet, consectetur adipisicing elit.
 		</Textbox>
 		<Jumbotron imageURL="//placehold.it/1024x700/333/555?text=backpack" size="small">
