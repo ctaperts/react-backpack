@@ -23,6 +23,6 @@ app.listen(PORT, error => {
 
   } else {
 
-    console.log(`Development Express server running at http://localhost:${PORT}`);
+    console.log(`Dev server http://localhost:${PORT}`);
   }
 });

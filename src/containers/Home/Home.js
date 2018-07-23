@@ -1,11 +1,16 @@
 import React, { Component } from 'react';
 import Helmet from "react-helmet";
 
+import Aux from '../../hoc/Aux/Aux';
+
 import Jumbotron from '../../components/Jumbotron/Jumbotron';
 import Button from '../../components/Button/Button';
 import Textbox from '../../components/Textbox/Textbox';
-import Aux from '../../hoc/Aux/Aux';
+
 import classes from './Home.scss';
+
+import rtgRoutesExamplJSImage from '../../assets/images/react-transition-group-routes-js.png'
+import rtgRoutesExamplCSSImage from '../../assets/images/react-transition-group-routes-css.png'
 
 class Home extends Component {
   render = () => {
@@ -25,6 +30,7 @@ class Home extends Component {
 		  Lorem ipsum dolor sit amet, consectetur adipisicing elit. At quia doloremque tempora placeat officia ex obcaecati tenetur deserunt repudiandae praesentium. Lorem ipsum dolor sit amet, consectetur adipisicing elit.
 		</Textbox>
 		<Textbox>
+          {/* <img src={rtgRoutesExamplJSImage} alt="" /> */}
 		  Lorem ipsum dolor sit amet, consectetur adipisicing elit. At quia doloremque tempora placeat officia ex obcaecati tenetur deserunt repudiandae praesentium. Lorem ipsum dolor sit amet, consectetur adipisicing elit.
 		</Textbox>
 		<Jumbotron imageURL="//placehold.it/1024x700/333/555?text=backpack" size="small">
