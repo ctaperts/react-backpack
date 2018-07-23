@@ -1,10 +1,15 @@
 {
   "presets": [
-    "env",
+    [
+      "env", {
+        "targets": {
+          "node": "current"
+        }
+      }
+    ],
     "react",
     "stage-0"
   ],
-  "plugins": ["transform-async-to-generator"],
   "env": {
     "development" : {
       "compact": false

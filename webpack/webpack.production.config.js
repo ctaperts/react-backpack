@@ -8,12 +8,33 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const distDir = path.join(__dirname, '../dist');
 const srcDir = path.join(__dirname, '../src');
 
+require("babel-polyfill");
+
+const commonLoader = [
+  {
+    test: /\.(js|jsx)$/,
+    exclude: /(node_modules\/)/,
+    use: [
+      {
+        loader: 'babel-loader',
+      }
+    ]
+  },
+  {
+    test: /\.(jpe?g|png|gif|pdf|woff|woff2|eot|ttf|svg)(\?[a-z0-9=.]+)?$/,
+    loader: 'url-loader'
+  }
+]
+
 module.exports = [
   {
     name: 'client',
     mode: 'production',
     target: 'web',
-    entry: `${srcDir}/client.js`,
+    entry: [
+      'babel-polyfill',
+      `${srcDir}/client.js`,
+    ],
     output: {
       path: distDir,
       filename: 'client.js',
@@ -23,16 +44,7 @@ module.exports = [
       extensions: ['.js', '.jsx']
     },
     module: {
-      rules: [
-        {
-          test: /\.(js|jsx)$/,
-          exclude: /(node_modules\/)/,
-          use: [
-            {
-              loader: 'babel-loader',
-            }
-          ]
-        },
+      rules: commonLoader.concat([
         {
           test: /\.scss$/,
           use: ExtractTextPlugin.extract({
@@ -53,7 +65,7 @@ module.exports = [
             ]
           })
         }
-      ],
+      ]),
     },
     plugins: [
       new ExtractTextPlugin({
@@ -84,16 +96,7 @@ module.exports = [
       extensions: ['.js', '.jsx']
     },
     module: {
-      rules: [
-        {
-          test: /\.(js|jsx)$/,
-          exclude: /(node_modules\/)/,
-          use: [
-            {
-              loader: 'babel-loader',
-            }
-          ]
-        },
+      rules: commonLoader.concat([
         {
           test: /\.scss$/,
           use: [
@@ -114,7 +117,7 @@ module.exports = [
             }
           ]
         }
-      ],
+      ]),
     },
     plugins: [
       new OptimizeCssAssetsPlugin({
