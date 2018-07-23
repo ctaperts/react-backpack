@@ -30,9 +30,16 @@ class Home extends Component {
 		  Lorem ipsum dolor sit amet, consectetur adipisicing elit. At quia doloremque tempora placeat officia ex obcaecati tenetur deserunt repudiandae praesentium. Lorem ipsum dolor sit amet, consectetur adipisicing elit.
 		</Textbox>
 		<Textbox>
-          {/* <img src={rtgRoutesExamplJSImage} alt="" /> */}
 		  Lorem ipsum dolor sit amet, consectetur adipisicing elit. At quia doloremque tempora placeat officia ex obcaecati tenetur deserunt repudiandae praesentium. Lorem ipsum dolor sit amet, consectetur adipisicing elit.
 		</Textbox>
+		<div className={classes.FlexGridTwos}>
+		  <div className={classes.Col}>
+			<img src={rtgRoutesExamplJSImage} alt=""></img>
+		  </div>
+		  <div className={classes.Col}>
+			<img src={rtgRoutesExamplCSSImage} alt=""></img>
+		  </div>
+		</div>
 		<Jumbotron imageURL="//placehold.it/1024x700/333/555?text=backpack" size="small">
 		</Jumbotron>
 	  </Aux>

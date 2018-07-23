@@ -1,0 +1,40 @@
+.Col {
+  padding: 20px;
+  text-align: center;
+}
+
+.FlexGridTwos {
+  display: flex;
+  justify-content: space-between;
+
+}
+
+.FlexGridTwos {
+  display: block;
+  .Col {
+	width: 100%;
+	margin: 0 0 10px 0;
+    padding-left: 0;
+  background-color: #121212;
+  }
+}
+.FlexGridTwos .Col img {
+  width: 100%;
+  text-align: center;
+}
+@media (min-width: 850px) {
+  .FlexGridTwos {
+	display: flex;
+    justify-content: space-around;
+
+  }
+  .FlexGridTwos .Col {
+	width: 50%;
+	box-sizing: border-box;
+  }
+  .FlexGridTwos .Col img {
+	width: 80%;
+    min-width: 400px;
+  }
+}
+

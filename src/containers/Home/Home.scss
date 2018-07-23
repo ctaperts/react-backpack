@@ -1,3 +1,5 @@
+@import '../../shared/scss/Grid.scss';
+
 @mixin vertical-align($position: relative) {
   position: $position;
   top: 45%;
@@ -19,4 +21,3 @@
 	left: 48%;
   }
 }
-
