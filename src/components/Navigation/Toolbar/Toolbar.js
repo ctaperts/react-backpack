@@ -22,6 +22,9 @@ class Toolbar extends Component {
                   <Link to={'/about'}>About</Link>
                 </li>
                 <li>
+                  <Link to={'/more-info'}>More Info</Link>
+                </li>
+                <li>
                   <Link to={'/'}>Home</Link>
                 </li>
               </ul>
