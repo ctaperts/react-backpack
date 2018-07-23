@@ -19,7 +19,7 @@ const commonLoader = [
   },
   {
     test: /\.(jpe?g|png|gif|pdf|woff|woff2|eot|ttf|svg)(\?[a-z0-9=.]+)?$/,
-    loader: 'url-loader?limit=8000&name=/images/[name].[ext]'
+    loader: 'url-loader?limit=8000&name=images/[name].[ext]'
   }
 ]
 
