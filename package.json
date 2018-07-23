@@ -1,12 +1,11 @@
 {
   "name": "react-backpack",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A starter kit for react with SSR, SCSS Modules and more!",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "node ./express/development.js",
-    "prodBuild": "webpack -p --config ./webpack/webpack.production.config.js --progress --profile --colors",
+    "build": "webpack -p --config ./webpack/webpack.production.config.js --progress --profile --colors",
     "prod": "webpack -p --config ./webpack/webpack.production.config.js --progress --profile --colors && node ./express/production.js",
     "pm2": "pm2 start ./express/production.js",
     "clean": "rm -rf node_modules; rm package-lock.json; rm -rf dist; npm i"
