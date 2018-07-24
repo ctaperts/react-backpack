@@ -12,24 +12,7 @@ class About extends Component {
 	return (
 	  <Aux>
 		<Helmet title="About Title"/>
-        <Jumbotron imageURL="//placehold.it/1024x700/449955/000/FFF?text=https://github.com/ctaperts/react-backpack">
-		</Jumbotron>
-		<Textbox backgroundColor="black" color="#fff">
-		  Lorem ipsum dolor sit amet, consectetur adipisicing elit. At quia doloremque tempora placeat officia ex obcaecati tenetur deserunt repudiandae praesentium.
-		</Textbox>
-		<Jumbotron imageURL="//placehold.it/1024x700/000/222?text=|" size="small">
-		  <div className={classes.CenterBox}><Button btnType="Grey">About</Button></div>
-		</Jumbotron>
-		<Textbox>
-		  Lorem ipsum dolor sit amet, consectetur adipisicing elit. At quia doloremque tempora placeat officia ex obcaecati tenetur deserunt repudiandae praesentium. Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-		</Textbox>
-		<Jumbotron imageURL="//placehold.it/1024x700/449955/FFF?text=|">
-		  <div className={classes.CenterBox}><Button btnType="Success">About</Button></div>
-		</Jumbotron>
-		<Textbox>
-		  Lorem ipsum dolor sit amet, consectetur adipisicing elit. At quia doloremque tempora placeat officia ex obcaecati tenetur deserunt repudiandae praesentium. Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-		</Textbox>
-		<Jumbotron imageURL="//placehold.it/1024x700/333/555?text=backpack" size="small">
+        <Jumbotron imageURL="//placehold.it/1024x700/123/FFF/FFF?text=https://github.com/ctaperts/react-backpack">
 		</Jumbotron>
 	  </Aux>
 	);

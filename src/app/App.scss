@@ -20,28 +20,6 @@ body::-webkit-scrollbar-thumb {
   outline: 1px solid slategrey;
 }
 
-.Enter {
-  opacity: 0;
-}
-
-.Enter.EnterActive {
-  opacity: 1;
-  transition: opacity 100ms;
-}
-
-.Exit {
-  opacity: 1;
-  transform: translate(0, 0);
-  z-index: -1;
-}
-
-.Exit.ExitActive {
-  opacity: 0;
-  transform: translate(0vh, 10vh);
-  transition: opacity 1000ms, transform 1000ms;
-  z-index: 1;
-}
-
 .FixContainer {
   position: absolute;
   margin-top: 16px;

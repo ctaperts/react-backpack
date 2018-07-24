@@ -1,4 +1,5 @@
 @import '../../shared/scss/Grid.scss';
+@import '../../shared/scss/Container.scss';
 
 @mixin vertical-align($position: relative) {
   position: $position;

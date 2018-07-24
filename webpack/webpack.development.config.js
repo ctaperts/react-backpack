@@ -5,8 +5,6 @@ var webpack = require('webpack');
 const distDir = path.join(__dirname, '../dist');
 const srcDir = path.join(__dirname, '../src');
 
-require("babel-polyfill");
-
 const commonLoader = [
   {
     test: /\.(js|jsx)$/,

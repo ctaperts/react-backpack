@@ -8,8 +8,6 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const distDir = path.join(__dirname, '../dist');
 const srcDir = path.join(__dirname, '../src');
 
-require("babel-polyfill");
-
 const commonLoader = [
   {
     test: /\.(js|jsx)$/,

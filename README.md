@@ -23,7 +23,6 @@ npm run pm2
 ```
 
 ## TODO
-Add:
 - optimize build for production
 - relay
 - PWA

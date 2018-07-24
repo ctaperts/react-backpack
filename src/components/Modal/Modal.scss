@@ -1,0 +1,54 @@
+.Modal {
+  position: fixed;
+  background-color: white;
+  width: 80%;
+  border: 1px solid #ccc;
+  box-shadow: 1px 1px 1px black;
+  padding: 16px 0;
+  left: 2.5%;
+  top: 20%;
+  box-sizing: border-box;
+  transition: all 0.3s ease-out;
+}
+
+.Large {
+  top: 8%;
+  height: 500px;
+  font-size: 12px;
+}
+@media (min-width: 340px) {
+  .Modal {
+    left: calc(50% - 100px);
+    top: 20%;
+  }
+  .Large {
+    height: 580px;
+    top: 10%;
+    left: calc(30% - 100px);
+    font-size: unset;
+  }
+}
+
+@media (min-width: 600px) {
+  .Modal {
+    width: 500px;
+    left: calc(50% - 250px);
+    height: 300px;
+  }
+  .Large {
+    width: 550px;
+    left: calc(30% - 150px);
+    height: 680px;
+  }
+}
+@media (min-width: 810px) {
+  .Large {
+    width: 800px;
+    left: calc(30% - 200px);
+  }
+}
+@media (min-width:1100px) {
+  .Large {
+    width: 1000px;
+  }
+}
