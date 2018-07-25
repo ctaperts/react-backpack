@@ -14,27 +14,37 @@ class MoreInfo extends Component {
 		<Helmet title="MoreInfo Title"/>
         <Jumbotron imageURL="//placehold.it/1024x700/445/000/FFF?text=Other Examples">
 		</Jumbotron>
-		<Textbox backgroundColor="#554" color="#fff">
-          <div style={{fontStyle: 'italic'}}>
-            Animated page transitions
-          </div> <br/>
+        <Textbox backgroundColor="#554" color="#fff">
+          <div style={{fontStyle: 'italic', paddingTop: "40px"}}>
+            <p>
+              Animated page transitions
+            </p>
+          </div>
           <a href="http://animate.mhaagens.me/" target="blank" style={{color: 'white'}}>
-            http://animate.mhaagens.me/
+            <p>
+              http://animate.mhaagens.me/
+            </p>
           </a>
         </Textbox>
         <Jumbotron imageURL="//placehold.it/1024x700/449955/000/FFF?text=Alternatives">
         </Jumbotron>
         <Textbox backgroundColor="black" color="#fff">
-          React CSS Transition Replace:<br/>
+          <p>
+            React CSS Transition Replace:<br/>
+          </p>
           <div style={{fontStyle: 'italic'}}>
-            automatically handles the positioning of the animated components
-          </div> <br/>
+            <p>
+              automatically handles the positioning of the animated components
+            </p>
+          </div>
           <a href="https://github.com/marnusw/react-css-transition-replace" target="blank" style={{color: 'white'}}>
-            https://github.com/marnusw/react-css-transition-replace
+            <p>
+              https://github.com/marnusw/react-css-transition-replace
+            </p>
           </a>
-        </Textbox>
-      </Aux>
-    );
+      </Textbox>
+    </Aux>
+);
   }
 }
 

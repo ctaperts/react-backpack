@@ -69,7 +69,9 @@ class ToDoItems extends Component {
         <Jumbotron imageURL="//placehold.it/1024x700/333/555?text=To Do App" size="small">
         </Jumbotron>
         <Textbox backgroundColor="grey" color="white">
-          A simple ToDo App with react transition groups
+          <p>
+            A simple ToDo App with react transition groups
+          </p>
         </Textbox>
         <div className={classes.Items}>
           <Toolbar onAddHandler={this.addItemHandler} />
