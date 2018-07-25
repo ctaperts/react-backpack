@@ -11,25 +11,30 @@ import Modal from '../../components/Modal/Modal'
 
 import classes from './Home.scss';
 
-import rtgRoutesExamplJSImage from '../../assets/images/react-transition-group-routes-js.png'
-import rtgRoutesExamplCSSImage from '../../assets/images/react-transition-group-routes-css.png'
 import rtgTransitions from '../../assets/images/react-transition-group-transition.png'
 import rtgTransitionsFade from '../../assets/images/react-transition-group-transition-fade.png'
 
 class Home extends Component {
   state = {
     modalOpen: false,
+    modalCssOpen: false,
     show: false,
+    showCss: false,
     fade: false
   }
 
   modalHandler = () => {
     this.setState({modalOpen: !this.state.modalOpen})
   }
+  modalCssHandler = () => {
+    this.setState({modalCssOpen: !this.state.modalCssOpen})
+  }
   showHandler = () => {
     this.setState({show: !this.state.show})
   }
-
+  showCssHandler = () => {
+    this.setState({showCss: !this.state.showCss})
+  }
   showFadeHandler = () => {
     this.setState({fade: !this.state.fade})
   }
@@ -47,7 +52,23 @@ class Home extends Component {
       entered:  { opacity: 1 },
     };
 
-    let infoModal = (
+    const cssModal = (
+      <Modal size="large" show={this.state.modalCssOpen} modalClosed={() => this.modalCssHandler()}>
+            <ul style={{textAlign: "left", marginLeft: "45%", fontSize: "20px"}}>
+              <li>
+                appear
+              </li>
+              <li>
+                enter
+              </li>
+              <li>
+                exit
+              </li>
+            </ul>
+          </Modal>
+    );
+
+    const transitionModal = (
       <Modal size="large" show={this.state.modalOpen} modalClosed={() => this.modalHandler()}>
         <div className={classes.Container}>
           <h2 style={{textAlign: "center"}}>Transition</h2>
@@ -130,7 +151,7 @@ class Home extends Component {
               </div>
             </div>
             <div className={classes.Col}>
-              <img src={rtgTransitionsFade} alt="" width="100%" />
+              <img src={rtgTransitionsFade} alt="" height="87%" />
             </div>
           </div>
         </div>
@@ -138,30 +159,51 @@ class Home extends Component {
     )
     return (
       <Aux>
-        {infoModal}
+        {transitionModal}
+        {cssModal}
         <Helmet title="Home Title"/>
         <Jumbotron imageURL="//placehold.it/1024x700/449955/000/FFF?text=React Transition Groups">
         </Jumbotron>
-        <Textbox backgroundColor="blue" color="#81ff00">
-          <strong style={{fontSize: "20px"}}>
-            Colby Taperts
-          </strong>
+        <Textbox>
+          <p style={{fontSize: "25px"}}>
+            <strong>Components include:</strong>
+            <br/>
+            Transition
+            <br/>
+            CSSTransition
+            <br/>
+            TransitionGroup
+          </p>
+        </Textbox>
+        <Textbox backgroundColor="teal">
+          <p>
+            <strong>
+              Transition
+            </strong>
+            <br/>
+            The Transition component lets you describe a transition from one component state to another over time with a simple declarative API
+          </p>
         </Textbox>
         <Jumbotron imageURL="//placehold.it/1024x700/000/222?text=|" size="small">
           <div className={classes.CenterBox}><Button btnType="Grey" clicked={() => this.modalHandler()}>Transition</Button></div>
         </Jumbotron>
-        <Textbox>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. At quia doloremque tempora placeat officia ex obcaecati tenetur deserunt repudiandae praesentium. Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+        <Textbox backgroundColor="teal">
+          <p>
+            <strong>
+              CSSTransition
+            </strong>
+            <br/>
+            A Transition component using CSS transitions and animations
+            CSSTransition applies a pair of class names to the stages of transition.
+          </p>
         </Textbox>
-        <Textbox>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. At quia doloremque tempora placeat officia ex obcaecati tenetur deserunt repudiandae praesentium. Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-        </Textbox>
+        <Jumbotron imageURL="//placehold.it/1024x700/456/222?text=|" size="small">
+          <div className={classes.CenterBox}><Button btnType="Clear" clicked={() => this.modalCssHandler()}>CSS Transition</Button></div>
+        </Jumbotron>
         <div className={classes.FlexGridTwos}>
           <div className={classes.Col}>
-            <img src={rtgRoutesExamplJSImage} alt=""></img>
           </div>
           <div className={classes.Col}>
-            <img src={rtgRoutesExamplCSSImage} alt=""></img>
           </div>
         </div>
         <Jumbotron imageURL="//placehold.it/1024x700/333/555?text=backpack" size="small">
