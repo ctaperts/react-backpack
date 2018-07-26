@@ -22,3 +22,22 @@
 	left: 46%;
   }
 }
+
+.Enter {
+    opacity: 0.01;
+}
+
+.EnterActive {
+    opacity: 1;
+    transition: all 500ms ease-in;
+}
+
+.Exit {
+    opacity: 1;
+    transform: translate(0, 0)
+}
+
+.ExitActive {
+    opacity: 0.01;
+    transition: all 500ms ease-in;
+}
