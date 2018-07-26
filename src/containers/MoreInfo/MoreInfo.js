@@ -30,21 +30,51 @@ class MoreInfo extends Component {
         </Jumbotron>
         <Textbox backgroundColor="black" color="#fff">
           <p>
-            React CSS Transition Replace:<br/>
+            React-Motion:<br/>
           </p>
           <div style={{fontStyle: 'italic'}}>
-            <p>
-              automatically handles the positioning of the animated components
-            </p>
-          </div>
-          <a href="https://github.com/marnusw/react-css-transition-replace" target="blank" style={{color: 'white'}}>
-            <p>
-              https://github.com/marnusw/react-css-transition-replace
-            </p>
-          </a>
-      </Textbox>
-    </Aux>
-);
+			<p>
+			  A spring that solves your animation problems.
+			</p>
+		  </div>
+          <a href="https://github.com/chenglou/react-motion" target="blank" style={{color: 'white'}}>
+			<p>
+              https://github.com/chenglou/react-motion
+			</p>
+		  </a>
+		</Textbox>
+		<Textbox backgroundColor="black" color="#fff">
+		  <p>
+			React Pose:<br/>
+		  </p>
+		  <div style={{fontStyle: 'italic'}}>
+			<p>
+			  Declarative motion system for React, React Native, and vanilla JS
+			</p>
+		  </div>
+		  <a href="https://popmotion.io/pose/" target="blank" style={{color: 'white'}}>
+			<p>
+			  https://popmotion.io/pose/
+			</p>
+		  </a>
+		</Textbox>
+		<Textbox backgroundColor="black" color="#fff">
+		  <p>
+			React CSS Transition Replace:<br/>
+		  </p>
+		  <div style={{fontStyle: 'italic'}}>
+			<p>
+			  automatically handles the positioning of the animated components
+			</p>
+		  </div>
+		  <a href="https://github.com/marnusw/react-css-transition-replace" target="blank" style={{color: 'white'}}>
+			<p>
+			  https://github.com/marnusw/react-css-transition-replace
+			</p>
+		  </a>
+		</Textbox>
+	  </Aux>
+	);
   }
 }
 

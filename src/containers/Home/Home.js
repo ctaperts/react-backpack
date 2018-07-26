@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Helmet from "react-helmet";
-import { Transition } from 'react-transition-group';
+import { TransitionGroup, CSSTransition, Transition } from 'react-transition-group';
 
 import Aux from '../../hoc/Aux/Aux';
 
@@ -13,6 +13,8 @@ import classes from './Home.scss';
 
 import rtgTransitions from '../../assets/images/react-transition-group-transition.png'
 import rtgTransitionsFade from '../../assets/images/react-transition-group-transition-fade.png'
+import rtgCSSTransitionFade from '../../assets/images/react-transition-group-CSSTransition-fade.png'
+import rtgCSSTransition from '../../assets/images/react-transition-group-CSSTransition.png'
 
 class Home extends Component {
   state = {
@@ -20,7 +22,8 @@ class Home extends Component {
     modalCssOpen: false,
     show: false,
     showCss: false,
-    fade: false
+    fade: false,
+    items:  ['Click', 'To', 'Remove', 'An', 'Item']
   }
 
   modalHandler = () => {
@@ -38,6 +41,20 @@ class Home extends Component {
   showFadeHandler = () => {
     this.setState({fade: !this.state.fade})
   }
+  showCssFadeHandler = () => {
+    this.setState({items: ['Click', 'To', 'Remove', 'An', 'Item']})
+  }
+
+  renderItems() {
+  }
+
+  removeItem(i) {
+    let newItems = this.state.items.slice();
+    newItems.splice(i, 1);
+    this.setState({
+      items: newItems
+    });
+  }
 
   render = () => {
     const duration = 1000;
@@ -54,7 +71,12 @@ class Home extends Component {
 
     const cssModal = (
       <Modal size="large" show={this.state.modalCssOpen} modalClosed={() => this.modalCssHandler()}>
-            <ul style={{textAlign: "left", marginLeft: "45%", fontSize: "20px"}}>
+        <div className={classes.FlexGridTwos}>
+          <div className={classes.Col}>
+            <p>
+              There are 3 states CSSTransition will be in:
+            </p>
+            <ul style={{textAlign: "left"}}>
               <li>
                 appear
               </li>
@@ -65,7 +87,42 @@ class Home extends Component {
                 exit
               </li>
             </ul>
-          </Modal>
+          </div>
+          <div className={classes.Col} style={{marginLeft: "-150px"}}>
+            <Button btnType="Clear"
+              clicked={() => this.showCssFadeHandler()}>
+              Example
+            </Button>
+          </div>
+        </div>
+        <div className={classes.FlexGridTwos}>
+          <div className={classes.Col} style={{marginTop: "-60px"}}>
+            <img src={rtgCSSTransition} alt="" />
+            <img src={rtgCSSTransitionFade} alt="" />
+          </div>
+          <div className={classes.Col}>
+            <TransitionGroup>
+              { this.state.items.map((item, i) => {
+                return (
+                  <CSSTransition
+                    key={item}
+                    timeout={500}
+                    classNames={{
+                    enter: classes.Enter,
+                    enterActive: classes.EnterActive,
+                    exit: classes.Exit,
+                    exitActive: classes.ExitActive,
+                    }}>
+                    <div className={classes.Item} onClick={() => this.removeItem(i)}>
+                      {item}
+                    </div>
+                  </CSSTransition>
+                );
+              })}
+            </TransitionGroup>
+          </div>
+        </div>
+      </Modal>
     );
 
     const transitionModal = (
@@ -162,8 +219,17 @@ class Home extends Component {
         {transitionModal}
         {cssModal}
         <Helmet title="Home Title"/>
-        <Jumbotron imageURL="//placehold.it/1024x700/449955/000/FFF?text=React Transition Groups">
-        </Jumbotron>
+        <CSSTransition
+          in
+          classNames={{
+          appear: classes.Appear,
+          appearActive: classes.AppearActive,
+          }}
+          appear={true}
+          timeout={1000}>
+          <Jumbotron imageURL="//placehold.it/1024x700/449955/000/FFF?text=React Transition Groups">
+          </Jumbotron>
+        </CSSTransition>
         <Textbox>
           <p style={{fontSize: "25px"}}>
             <strong>Components include:</strong>
@@ -193,20 +259,25 @@ class Home extends Component {
               CSSTransition
             </strong>
             <br/>
-            A Transition component using CSS transitions and animations
+            A Transition component using CSS transitions and animations.<br/>
             CSSTransition applies a pair of class names to the stages of transition.
           </p>
         </Textbox>
         <Jumbotron imageURL="//placehold.it/1024x700/456/222?text=|" size="small">
           <div className={classes.CenterBox}><Button btnType="Clear" clicked={() => this.modalCssHandler()}>CSS Transition</Button></div>
         </Jumbotron>
-        <div className={classes.FlexGridTwos}>
-          <div className={classes.Col}>
-          </div>
-          <div className={classes.Col}>
-          </div>
-        </div>
-        <Jumbotron imageURL="//placehold.it/1024x700/333/555?text=backpack" size="small">
+        <Textbox backgroundColor="teal">
+          <p>
+            <strong>
+              TransitionGroup
+            </strong>
+            <br/>
+            Manages components in a list<br/>
+            is a state machine for managing the mounting and unmounting of components over time.
+          </p>
+        </Textbox>
+        <Jumbotron imageURL="//placehold.it/1024x700/333/555?text=|" size="small">
+          <div className={classes.CenterBox}><Button btnType="Clear" clicked={() => this.modalCssHandler()}>TransitionGroup</Button></div>
         </Jumbotron>
       </Aux>
     );
