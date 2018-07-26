@@ -14,6 +14,7 @@ import classes from './Home.scss';
 import rtgTransitions from '../../assets/images/react-transition-group-transition.png'
 import rtgTransitionsFade from '../../assets/images/react-transition-group-transition-fade.png'
 import rtgCSSTransitionFade from '../../assets/images/react-transition-group-CSSTransition-fade.png'
+import rtgCSSTransition from '../../assets/images/react-transition-group-CSSTransition.png'
 
 class Home extends Component {
   state = {
@@ -87,7 +88,7 @@ class Home extends Component {
               </li>
             </ul>
           </div>
-          <div className={classes.Col}>
+          <div className={classes.Col} style={{marginLeft: "-150px"}}>
             <Button btnType="Clear"
               clicked={() => this.showCssFadeHandler()}>
               Example
@@ -95,7 +96,8 @@ class Home extends Component {
           </div>
         </div>
         <div className={classes.FlexGridTwos}>
-          <div className={classes.Col}>
+          <div className={classes.Col} style={{marginTop: "-60px"}}>
+            <img src={rtgCSSTransition} alt="" />
             <img src={rtgCSSTransitionFade} alt="" />
           </div>
           <div className={classes.Col}>
@@ -111,7 +113,7 @@ class Home extends Component {
                     exit: classes.Exit,
                     exitActive: classes.ExitActive,
                     }}>
-                    <div onClick={() => this.removeItem(i)}>
+                    <div className={classes.Item} onClick={() => this.removeItem(i)}>
                       {item}
                     </div>
                   </CSSTransition>
@@ -217,8 +219,17 @@ class Home extends Component {
         {transitionModal}
         {cssModal}
         <Helmet title="Home Title"/>
-        <Jumbotron imageURL="//placehold.it/1024x700/449955/000/FFF?text=React Transition Groups">
-        </Jumbotron>
+        <CSSTransition
+          in
+          classNames={{
+          appear: classes.Appear,
+          appearActive: classes.AppearActive,
+          }}
+          appear={true}
+          timeout={1000}>
+          <Jumbotron imageURL="//placehold.it/1024x700/449955/000/FFF?text=React Transition Groups">
+          </Jumbotron>
+        </CSSTransition>
         <Textbox>
           <p style={{fontSize: "25px"}}>
             <strong>Components include:</strong>
@@ -255,13 +266,18 @@ class Home extends Component {
         <Jumbotron imageURL="//placehold.it/1024x700/456/222?text=|" size="small">
           <div className={classes.CenterBox}><Button btnType="Clear" clicked={() => this.modalCssHandler()}>CSS Transition</Button></div>
         </Jumbotron>
-        <div className={classes.FlexGridTwos}>
-          <div className={classes.Col}>
-          </div>
-          <div className={classes.Col}>
-          </div>
-        </div>
-        <Jumbotron imageURL="//placehold.it/1024x700/333/555?text=backpack" size="small">
+        <Textbox backgroundColor="teal">
+          <p>
+            <strong>
+              TransitionGroup
+            </strong>
+            <br/>
+            Manages components in a list<br/>
+            is a state machine for managing the mounting and unmounting of components over time.
+          </p>
+        </Textbox>
+        <Jumbotron imageURL="//placehold.it/1024x700/333/555?text=|" size="small">
+          <div className={classes.CenterBox}><Button btnType="Clear" clicked={() => this.modalCssHandler()}>TransitionGroup</Button></div>
         </Jumbotron>
       </Aux>
     );

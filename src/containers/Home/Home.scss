@@ -23,21 +23,46 @@
   }
 }
 
+.Item {
+  background-color: #121212;
+  width: 400px;
+  text-align: center;
+  padding: 10px 5px;
+  margin-top: 10px;
+  border-radius: 8px;
+  font-weight: 1000;
+  color: mix(#8282a8, #121212, 60%);
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+.Appear {
+  opacity: 0.01;
+  transform: translate(0, -40px)
+}
+
+.AppearActive {
+  opacity: 1;
+  transition: all 1000ms ease-in;
+  transform: translate(0, 0);
+}
+
 .Enter {
-    opacity: 0.01;
+  opacity: 0.5;
 }
 
 .EnterActive {
-    opacity: 1;
-    transition: all 500ms ease-in;
+  opacity: 1;
+  transition: all 500ms ease-in;
 }
 
 .Exit {
-    opacity: 1;
-    transform: translate(0, 0)
+  opacity: 1;
+  transform: translate(0, 0)
 }
 
 .ExitActive {
-    opacity: 0.01;
-    transition: all 500ms ease-in;
+  opacity: 0.01;
+  transition: all 500ms ease-in;
 }
