@@ -15,7 +15,7 @@
 # Development
 npm run dev
 # Build Production
-npm run prodBuild
+npm run build
 # Run Production
 npm run prod
 # Run pm2
