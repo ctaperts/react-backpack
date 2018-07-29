@@ -28,8 +28,6 @@ const Jumbotron = (props) => {
     default:
       jumboSize = classes.jumbotronLarge
   }
-  console.log(props.size)
-  console.log(jumboSize)
   return (
     <TronSlide>
       <div className={jumboSize}>
