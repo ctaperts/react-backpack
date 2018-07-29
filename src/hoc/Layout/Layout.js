@@ -20,6 +20,7 @@ class Layout extends Component {
           meta={[
             {name: "description", content: "Backpack site"},
             {name: "viewport", content: "width=device-width, initial-scale=1"},
+            {name: "content-theme": content: "#000"},
           ]}
           link={[{rel: "stylesheet", href: "/dist/styles.css"}]}
         />
