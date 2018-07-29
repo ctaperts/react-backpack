@@ -5,15 +5,15 @@
 .EnterActive {
   opacity: 1;
   transition: opacity .7s .25s;
-  animation: slide-in .4s forwards;
-  -webkit-animation: slide-in .4s forwards;
+  animation: slide-in 1s ease;
+  -webkit-animation: slide-in 1s ease;
 }
 
 .ExitActive {
   opacity: 0;
   transition: opacity .3s;
-  animation: slide-out 3s forwards;
-  -webkit-animation: slide-out 3s forwards;
+  animation: slide-out 3s ease;
+  -webkit-animation: slide-out 3s ease;
   z-index: 1;
 }
 
@@ -24,22 +24,22 @@
 }
 
 @keyframes slide-in {
-  100% { transform: translateY(0%); }
-  0% { transform: translateY(-100%); }
+  40% { transform: translateY(0%); }
+  0% { transform: translateY(-40%); }
 }
 
 @-webkit-keyframes slide-in {
-  100% { -webkit-transform: translateY(0%); }
-  0% { -webkit-transform: translateY(-100%); }
+  40% { -webkit-transform: translateY(0%); }
+  0% { -webkit-transform: translateY(-40%); }
 }
 
 @keyframes slide-out {
   0% { transform: translateY(0%); }
-  100% { transform: translateY(-100%); }
+  40% { transform: translateY(-40%); }
 }
 
 @-webkit-keyframes slide-out {
   0% { -webkit-transform: translateY(0%); }
-  100% { -webkit-transform: translateY(-100%); }
+  40% { -webkit-transform: translateY(-40%); }
 }
 

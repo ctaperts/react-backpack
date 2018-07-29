@@ -15,7 +15,7 @@ const AnimatedSwitch = (props) => (
         exit: classes.Exit,
         exitActive: classes.ExitActive,
         }}
-        timeout={5000}>
+        timeout={1100}>
         <section className={classes.FixContainer}>
           <Switch key={location.key} location={location}>
             {props.children}
