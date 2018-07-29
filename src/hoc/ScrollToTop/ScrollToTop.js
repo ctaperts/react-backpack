@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
-import { withRouter } from 'react-router';
 
 class ScrollToTop extends Component {
-  componentDidUpdate(prevProps) {
-    window.scrollTo(0, 0)
+  componentDidUpdate() {
+    const options = {
+      behavior: "smooth",
+      left: 0,
+      top: 0
+    };
+    window.scroll(options);
   }
 
   render() {
@@ -11,4 +15,4 @@ class ScrollToTop extends Component {
   }
 }
 
-export default withRouter(ScrollToTop)
+export default ScrollToTop

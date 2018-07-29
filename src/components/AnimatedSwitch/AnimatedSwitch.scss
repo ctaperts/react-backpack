@@ -1,0 +1,48 @@
+.Enter {
+  opacity: 0;
+}
+
+.EnterActive {
+  opacity: 1;
+  transition: opacity 1000ms .4s, transform 700ms;
+  animation: slide-in .6s forwards;
+  -webkit-animation: slide-in .6s forwards;
+}
+
+@keyframes slide-in {
+  100% { transform: translateY(0%); }
+  0% { transform: translateY(-100%); }
+}
+
+@-webkit-keyframes slide-in {
+  100% { -webkit-transform: translateY(0%); }
+  0% { -webkit-transform: translateY(-100%); }
+}
+
+@keyframes slide-out {
+  0% { transform: translateY(0%); }
+  100% { transform: translateY(-100%); }
+}
+
+@-webkit-keyframes slide-out {
+  0% { -webkit-transform: translateY(0%); }
+  100% { -webkit-transform: translateY(-100%); }
+}
+.Exit {
+  opacity: 1;
+}
+
+.ExitActive {
+  opacity: 0;
+  transition: opacity 500ms;
+  animation: slide-out 3s forwards;
+  -webkit-animation: slide-out 3s forwards;
+  z-index: 1;
+}
+
+.FixContainer {
+  position: absolute;
+  min-width: 100%;
+  margin-top: 16px;
+}
+

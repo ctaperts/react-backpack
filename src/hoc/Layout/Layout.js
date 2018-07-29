@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Helmet from "react-helmet";
 
+import ScrollToTop from '../ScrollToTop/ScrollToTop'
 import Aux from '../Aux/Aux';
 import Toolbar from '../../components/Navigation/Toolbar/Toolbar';
 import classes from './Layout.scss';
@@ -23,9 +24,11 @@ class Layout extends Component {
           link={[{rel: "stylesheet", href: "/dist/styles.css"}]}
         />
         <Toolbar />
-        <main>
-          {this.props.children}
-        </main>
+        <ScrollToTop>
+          <main>
+            {this.props.children}
+          </main>
+        </ScrollToTop>
       </Aux>
     )
   };
