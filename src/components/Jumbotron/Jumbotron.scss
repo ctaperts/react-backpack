@@ -1,27 +1,24 @@
 .jumbotronLarge {
-  max-height: 30%;
-  min-width: 100%;
-  width: 100%;
   position: relative;
-
 }
 .jumbotronLarge img {
-  max-height: 800px;
-  width: 700vh;
-  max-width: 100%;
+  height: 60vh;
+  width: 100%;
 }
 
-.jumbotronSmall {
-  max-height: 30%;
-  min-width: 100%;
-  width: 100%;
+.jumbotronFull {
   position: relative;
-
+}
+.jumbotronFull img {
+  min-height: 100vh;
+  width: 100%;
+}
+.jumbotronSmall {
+  position: relative;
 }
 .jumbotronSmall img {
-  max-height: 250px;
-  width: 700vh;
-  max-width: 100%;
+  height: 30%;
+  width: 100%;
 }
 
 .tron-enter {

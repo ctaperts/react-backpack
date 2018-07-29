@@ -227,7 +227,7 @@ class Home extends Component {
           }}
           appear={true}
           timeout={1000}>
-          <Jumbotron imageURL="//placehold.it/1024x700/449955/000/FFF?text=React Transition Groups">
+          <Jumbotron imageURL="//placehold.it/1024x700/449955/000/FFF?text=React Transition Groups" size="full">
           </Jumbotron>
         </CSSTransition>
         <Textbox>
