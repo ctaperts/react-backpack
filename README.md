@@ -9,6 +9,7 @@
 - Helmet
 - Hot Reloading
 - React Transition Groups
+- PWA
 
 ## Run
 ```
@@ -25,8 +26,9 @@ npm run pm2
 ## TODO
 - optimize build for production
 - relay
-- PWA
 - typescript
 
 ## Issues
-- HMR does not work with scss
+- HMR: does not work with scss
+- PWA: does not render fallback
+- PWA: sometimes manifest does not load
