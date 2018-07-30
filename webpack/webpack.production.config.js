@@ -81,13 +81,15 @@ module.exports = [
       new webpack.optimize.OccurrenceOrderPlugin(),
       new CopyWebpackPlugin([
         { from: 'src/assets/icons', to: 'icons/' },
-        { from: 'src/manifest.json' },
+        { from: 'src/app/manifest.json' },
+        { from: 'src/app/robots.txt', to: 'static/' },
+        { from: 'src/app/sitemap.xml', to: 'static/' },
       ]),
       new OfflinePlugin({
-        publicPath: '../dist/',
-        appShell: '/dist/',
+        publicPath: '/',
+        appShell: '/',
         externals: [
-          '/dist/'
+          '/'
         ],
         version: "[hash]",
         AppCache: {

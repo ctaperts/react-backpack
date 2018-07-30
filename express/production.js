@@ -6,7 +6,10 @@ const ServerRendererPath = path.join(__dirname, './../dist/server.js');
 const ServerRenderer = require(ServerRendererPath).default;
 const Stats = require(ClientStatsPath);
 
-app.use('/dist', express.static(path.join(__dirname, '../dist')));
+app.use('/', express.static(path.join(__dirname, '../dist')));
+app.use('/robots.txt', express.static(path.join(__dirname, '../dist/static/robots.txt')));
+app.use('/sitemap.xml', express.static(path.join(__dirname, '../dist/static/sitemap.xml')));
+
 app.use(ServerRenderer(Stats));
 
 const PORT = process.env.PORT || 3000;
