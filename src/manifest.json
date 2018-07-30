@@ -38,7 +38,7 @@
       "sizes": "384x384"
     }
   ],
-  "start_url": "index.html?launcher=true",
+  "start_url": "/dist/",
   "display": "standalone",
   "background_color": "white",
   "theme_color": "#000"

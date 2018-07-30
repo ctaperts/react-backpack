@@ -84,12 +84,18 @@ module.exports = [
         { from: 'src/manifest.json' },
       ]),
       new OfflinePlugin({
-        publicPath: '/dist/',
-
+        publicPath: '../dist/',
         appShell: '/dist/',
         externals: [
           '/dist/'
-        ]
+        ],
+        version: "[hash]",
+        AppCache: {
+          events: true
+        },
+        ServiceWorker: {
+          events: true
+        }
       }),
     ]
   },
