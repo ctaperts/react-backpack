@@ -4,6 +4,8 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const StatsPlugin = require('stats-webpack-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const OfflinePlugin = require('offline-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const distDir = path.join(__dirname, '../dist');
 const srcDir = path.join(__dirname, '../src');
@@ -77,6 +79,18 @@ module.exports = [
       }),
       new CleanWebpackPlugin(distDir),
       new webpack.optimize.OccurrenceOrderPlugin(),
+      new CopyWebpackPlugin([
+        { from: 'src/assets/icons', to: 'icons/' },
+        { from: 'src/manifest.json' },
+      ]),
+      new OfflinePlugin({
+        publicPath: '/dist/',
+
+        appShell: '/dist/',
+        externals: [
+          '/dist/'
+        ]
+      }),
     ]
   },
   {

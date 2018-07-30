@@ -22,7 +22,10 @@ class Layout extends Component {
             {name: "viewport", content: "width=device-width, initial-scale=1"},
             {name: "theme-color", content: "#000"},
           ]}
-          link={[{rel: "stylesheet", href: "/dist/styles.css"}]}
+          link={[
+            {rel: "stylesheet", href: "/dist/styles.css"},
+            {rel: "manifest", href: "/dist/manifest.json"},
+          ]}
         />
         <Toolbar />
         <ScrollToTop>
