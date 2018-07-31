@@ -6,6 +6,7 @@ const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const OfflinePlugin = require('offline-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const CompressionPlugin = require('compression-webpack-plugin');
 
 const distDir = path.join(__dirname, '../dist');
 const srcDir = path.join(__dirname, '../src');
@@ -68,6 +69,13 @@ module.exports = [
       ]),
     },
     plugins: [
+      new CompressionPlugin({
+        asset: "[path].gz[query]",
+        algorithm: "gzip",
+        test: /\.js$|\.css$|\.html$/,
+        threshold: 10240,
+        minRatio: 0.8
+      }),
       new ExtractTextPlugin({
         filename: 'styles.css',
         allChunks: true
@@ -86,6 +94,10 @@ module.exports = [
         { from: 'src/app/sitemap.xml', to: 'static/' },
       ]),
       new OfflinePlugin({
+        caches: {
+          main: ['client.js.gz', ':rest:']
+        },
+        excludes: ['client.js'],
         publicPath: '/',
         appShell: '/',
         externals: [

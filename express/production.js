@@ -6,6 +6,12 @@ const ServerRendererPath = path.join(__dirname, './../dist/server.js');
 const ServerRenderer = require(ServerRendererPath).default;
 const Stats = require(ClientStatsPath);
 
+app.get('/client.js', function (req, res, next) {
+  req.url = req.url + '.gz';
+  res.set('Content-Encoding', 'gzip');
+  next();
+});
+
 app.use('/', express.static(path.join(__dirname, '../dist')));
 app.use('/robots.txt', express.static(path.join(__dirname, '../dist/static/robots.txt')));
 app.use('/sitemap.xml', express.static(path.join(__dirname, '../dist/static/sitemap.xml')));
