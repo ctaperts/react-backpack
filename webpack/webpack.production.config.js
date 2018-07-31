@@ -7,6 +7,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const OfflinePlugin = require('offline-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const distDir = path.join(__dirname, '../dist');
 const srcDir = path.join(__dirname, '../src');
@@ -38,8 +39,9 @@ module.exports = [
     ],
     output: {
       path: distDir,
-      filename: 'client.js',
       publicPath: distDir,
+      chunkFilename: "client.[chunkhash:4].js",
+      filename: 'client.[hash:4].js'
     },
     resolve: {
       extensions: ['.js', '.jsx']
@@ -76,6 +78,10 @@ module.exports = [
         threshold: 10240,
         minRatio: 0.8
       }),
+      new MiniCssExtractPlugin({
+        filename: '[name].[contenthash:4].css',
+        chunkFilename: '[id].css',
+      }),
       new ExtractTextPlugin({
         filename: 'styles.css',
         allChunks: true
@@ -95,9 +101,9 @@ module.exports = [
       ]),
       new OfflinePlugin({
         caches: {
-          main: ['client.js.gz', ':rest:']
+          main: ['client.[hash:4].js.gz', 'client.[chunkhash:4].js.gz', ':rest:']
         },
-        excludes: ['client.js'],
+        excludes: ['client.[hash:4].js', 'client.[chunkhash:4].js'],
         publicPath: '/',
         appShell: '/',
         externals: [
