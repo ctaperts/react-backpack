@@ -10,6 +10,7 @@
 - Hot Reloading
 - React Transition Groups
 - PWA
+- Compression
 
 ## Run
 ```
@@ -24,7 +25,6 @@ npm run pm2
 ```
 
 ## TODO
-- optimize build for production
 - relay
 - typescript
 
