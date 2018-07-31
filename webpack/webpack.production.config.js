@@ -40,8 +40,7 @@ module.exports = [
     output: {
       path: distDir,
       publicPath: distDir,
-      chunkFilename: "client.[chunkhash:4].js",
-      filename: 'client.[hash:4].js'
+      filename: 'client.js'
     },
     resolve: {
       extensions: ['.js', '.jsx']
@@ -101,9 +100,9 @@ module.exports = [
       ]),
       new OfflinePlugin({
         caches: {
-          main: ['client.[hash:4].js.gz', 'client.[chunkhash:4].js.gz', ':rest:']
+          main: ['client.js.gz', ':rest:']
         },
-        excludes: ['client.[hash:4].js', 'client.[chunkhash:4].js'],
+        excludes: ['client.js'],
         publicPath: '/',
         appShell: '/',
         externals: [
