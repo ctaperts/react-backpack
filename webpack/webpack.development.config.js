@@ -1,5 +1,5 @@
 const path = require('path');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 var webpack = require('webpack');
 
 const distDir = path.join(__dirname, '../dist');
@@ -43,32 +43,35 @@ module.exports = [
     module: {
       rules: commonLoader.concat([
         {
-          test: /\.scss$/,
-          use: ExtractTextPlugin.extract({
-            fallback: 'style-loader',
-            use: [
-              {
-                loader: 'css-loader',
-                options: {
-                  modules: true,
-                  importLoaders: 1,
-                  localIdentName: '[name]__[local]___[hash:base64:5]',
-                  // localIdentName: '[local]',
-                  sourceMap: true,
-                }
-              },
-              {
-                loader: 'sass-loader'
+          test: /\.(scss|css)$/,
+          use: [
+            'css-hot-loader',
+            MiniCssExtractPlugin.loader,
+            {
+              loader: 'css-loader',
+              options: {
+                minimize: {
+                  safe: true
+                },
+                modules: true,
+                importLoaders: 1,
+                localIdentName: '[name]__[local]___[hash:base64:5]',
+                // localIdentName: '[local]',
+                sourceMap: true,
               }
-            ]
-          })
+            },
+            {
+              loader: "sass-loader",
+              options: {}
+            }
+          ]
         },
       ]),
     },
     plugins: [
       new webpack.HotModuleReplacementPlugin(),
       new webpack.NoEmitOnErrorsPlugin(),
-      new ExtractTextPlugin({
+      new MiniCssExtractPlugin({
         filename: 'styles.css',
         allChunks: true
       })
@@ -93,7 +96,7 @@ module.exports = [
     module: {
       rules: commonLoader.concat([
         {
-          test: /\.scss$/,
+          test: /\.(scss|css)$/,
           use: [
             {
               loader: 'isomorphic-style-loader',

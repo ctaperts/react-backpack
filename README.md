@@ -27,6 +27,3 @@ npm run pm2
 ## TODO
 - relay
 - typescript
-
-## Issues
-- HMR: does not work with scss
