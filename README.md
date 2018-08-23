@@ -25,5 +25,4 @@ npm run pm2
 ```
 
 ## TODO
-- relay
-- typescript
+- apollo
