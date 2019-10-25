@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import AnimatedSwitch from '../components/AnimatedSwitch/AnimatedSwitch';
 import Layout from '../hoc/Layout/Layout'
 import Home from '../containers/Home/Home';
+import Login from '../containers/Login/Login';
 import About from '../containers/About/About';
 import Contact from '../containers/Contact/Contact';
 import Blogs from '../containers/Blogs/Blogs';
@@ -16,6 +17,7 @@ import classes from './App.scss';
 const Routes = () => (
   <AnimatedSwitch>
     <Route exact path="/" component={Home} />
+    <Route exact path="/login" component={Login} />
     <Route exact path="/about" component={About} />
     <Route path="/contact" component={Contact}/>
     <Route path="/blog" component={Blogs}/>
