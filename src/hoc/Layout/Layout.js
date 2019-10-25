@@ -4,6 +4,7 @@ import Helmet from "react-helmet";
 import ScrollToTop from '../ScrollToTop/ScrollToTop'
 import Aux from '../Aux/Aux';
 import Toolbar from '../../components/Navigation/Toolbar/Toolbar';
+import Sidebar from '../../components/Navigation/Sidebar/Sidebar';
 import classes from './Layout.scss';
 
 // import Footer from '../../components/Footer/Footer';
@@ -27,6 +28,7 @@ class Layout extends Component {
             {rel: "manifest", href: "/manifest.json"},
           ]}
         />
+        <Sidebar />
         <Toolbar />
         <ScrollToTop>
           <main>
