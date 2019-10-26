@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import Helmet from "react-helmet";
 
 import ScrollToTop from '../ScrollToTop/ScrollToTop'
-import Aux from '../Aux/Aux';
+
 import Toolbar from '../../components/Navigation/Toolbar/Toolbar';
 import Sidebar from '../../components/Navigation/Sidebar/Sidebar';
 import classes from './Layout.scss';
@@ -13,7 +13,7 @@ class Layout extends Component {
 
   render () {
     return (
-      <Aux>
+      <Fragment>
         <Helmet
           htmlAttributes={{lang: "en", amp: undefined}} // amp takes no value
           titleTemplate="%s | Backpack"
@@ -35,7 +35,7 @@ class Layout extends Component {
             {this.props.children}
           </main>
         </ScrollToTop>
-      </Aux>
+      </Fragment>
     )
   };
 }

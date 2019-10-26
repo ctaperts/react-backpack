@@ -1,16 +1,16 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import Helmet from "react-helmet";
 
 import Jumbotron from '../../components/Jumbotron/Jumbotron';
 import Button from '../../components/Button/Button';
 import Textbox from '../../components/Textbox/Textbox';
-import Aux from '../../hoc/Aux/Aux';
+
 import classes from './MoreInfo.scss';
 
 class MoreInfo extends Component {
   render = () => {
 	return (
-	  <Aux>
+	  <Fragment>
 		<Helmet title="MoreInfo Title"/>
         <Jumbotron imageURL="//placehold.it/1024x700/445/000/FFF?text=Other Examples">
 		</Jumbotron>
@@ -73,7 +73,7 @@ class MoreInfo extends Component {
 			</p>
 		  </a>
 		</Textbox>
-	  </Aux>
+	  </Fragment>
 	);
   }
 }

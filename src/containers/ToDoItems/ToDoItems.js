@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import Helmet from "react-helmet";
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
@@ -8,7 +8,7 @@ import Textbox from '../../components/Textbox/Textbox';
 import Toolbar from './Toolbar/Toolbar';
 import Item from './Item/Item';
 
-import Aux from '../../hoc/Aux/Aux';
+
 
 import classes from './ToDoItems.scss';
 
@@ -64,7 +64,7 @@ class ToDoItems extends Component {
       );
     });
     return (
-      <Aux>
+      <Fragment>
         <Helmet title="ToDoItems Title"/>
         <Jumbotron imageURL="//placehold.it/1024x700/333/555?text=To Do App" size="small">
         </Jumbotron>
@@ -79,7 +79,7 @@ class ToDoItems extends Component {
             {itemList}
           </TransitionGroup>
         </div>
-      </Aux>
+      </Fragment>
     );
   }
 }

@@ -1,6 +1,6 @@
-import React, {Component} from 'react';
+import React, {Component, Fragment} from 'react';
 import {Link} from 'react-router-dom';
-import Aux from '../../../hoc/Aux/Aux';
+
 
 import classes from './Sidebar.scss';
 
@@ -13,7 +13,7 @@ class Sidebar extends Component {
   }
   render = () => {
       return (
-        <Aux>
+        <Fragment>
         <nav className={this.state.collapsed ? classes.SidebarCollapsed : classes.Sidebar}>
           <div className={classes.Nav}>
             <ul>
@@ -55,7 +55,7 @@ class Sidebar extends Component {
             {this.state.collapsed ? '> >' : '< <'}
           </a>
         </div>
-      </Aux>
+      </Fragment>
       );
   }
 }

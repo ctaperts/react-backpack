@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import Helmet from "react-helmet";
 
-import Aux from '../../hoc/Aux/Aux';
+
 
 import Button from '../../components/Button/Button';
 import Textbox from '../../components/Textbox/Textbox';
@@ -13,6 +13,7 @@ class Login extends Component {
     username: '',
     password: ''
   }
+
   handleChange = (event, inputType) => {
     if (inputType === 'username') {
       this.setState({username: event.target.value});
@@ -26,12 +27,13 @@ class Login extends Component {
     event.preventDefault();
     alert('Username: ' + this.state.username + '\nPassword: ' + this.state.password);
     // do stuff here to return jwt
+    // store jwt in react hooks
   }
 
   render = () => {
 
     return (
-      <Aux>
+      <Fragment>
         <Helmet title="Login"/>
         <Textbox>
           <form onSubmit={this.handleSubmit}>
@@ -50,7 +52,7 @@ class Login extends Component {
             </p>
           </form>
         </Textbox>
-      </Aux>
+      </Fragment>
     );
   }
 }
