@@ -5,43 +5,59 @@ import Aux from '../../../hoc/Aux/Aux';
 import classes from './Sidebar.scss';
 
 class Sidebar extends Component {
-    render = () => {
-        return (
-          <Aux>
-          <nav className={classes.Sidebar}>
-            <div className={classes.Nav}>
-              <ul>
-                <li>
-                  <Link to={'/'}>Home</Link>
-                </li>
-                <li>
-                  <Link to={'/more-info'}>More Info</Link>
-                </li>
-                <li>
-                  <Link to={'/about'}>About</Link>
-                </li>
-                <li>
-                  <Link to={'/contact'}>Contact</Link>
-                </li>
-                <li>
-                  <Link to={'/blog'}>Blog</Link>
-                </li>
-                <li>
-                  <Link to={'/to-do'}>To Do App</Link>
-                </li>
-                <div className={classes.Collapse}>
-                  <li>
-                    <a>
-                      	&lt; &lt;
-                    </a>
-                  </li>
-                </div>
-              </ul>
-            </div>
-          </nav>
-        </Aux>
-        );
-    }
+  state = {
+    collapsed: false
+  }
+  handleCollapse = () => {
+    this.setState({collapsed: !this.state.collapsed});
+  }
+  render = () => {
+      return (
+        <Aux>
+        <nav className={this.state.collapsed ? classes.SidebarCollapsed : classes.Sidebar}>
+          <div className={classes.Nav}>
+            <ul>
+              <li>
+                <Link to={'/'}>
+                  {this.state.collapsed ? 'H' : 'Home'}
+                </Link>
+              </li>
+              <li>
+                <Link to={'/more-info'}>
+                  {this.state.collapsed ? 'M' : 'More Info'}
+                </Link>
+              </li>
+              <li>
+                <Link to={'/about'}>
+                  {this.state.collapsed ? 'A' : 'About'}
+                </Link>
+              </li>
+              <li>
+                <Link to={'/contact'}>
+                  {this.state.collapsed ? 'C' : 'Contact'}
+                </Link>
+              </li>
+              <li>
+                <Link to={'/blog'}>
+                  {this.state.collapsed ? 'B' : 'Blog'}
+                </Link>
+              </li>
+              <li>
+                <Link to={'/to-do'}>
+                  {this.state.collapsed ? 'T' : 'To Do App'}
+                </Link>
+              </li>
+            </ul>
+          </div>
+        </nav>
+        <div className={this.state.collapsed ? classes.CollapseIconSmall : classes.CollapseIcon}>
+          <a onClick={this.handleCollapse}>
+            {this.state.collapsed ? '> >' : '< <'}
+          </a>
+        </div>
+      </Aux>
+      );
+  }
 }
 
 export default Sidebar;

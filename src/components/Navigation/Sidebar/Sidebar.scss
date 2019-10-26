@@ -7,6 +7,15 @@
   background-color: #333;
 }
 
+.SidebarCollapsed {
+  width: 45px;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 25;
+  background-color: #333;
+}
+
 .Nav ul {
   list-style-type: none;
   margin: 0;
@@ -34,17 +43,41 @@
 
 }
 
-.Collapse {
+.CollapseIcon {
   position: fixed;
   z-index: 25;
   bottom: 10px;
   left: 47px;
 }
 
-.Collapse:hover {
-  left: -40px;
+.CollapseIcon a {
+  display: block;
+  color: white;
+  text-align: center;
+  text-decoration: none;
 }
-.Collapse a:hover {
+
+.CollapseIcon a:hover {
   cursor:pointer;
-  background-color: #333!important;
+  background-color: #333;
+}
+
+.CollapseIconSmall {
+  float: right;
+  position: fixed;
+  z-index: 25;
+  bottom: 10px;
+}
+
+.CollapseIconSmall a {
+  display: block;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  padding-left: 12px;
+}
+
+.CollapseIconSmall a:hover {
+  cursor:pointer;
+  background-color: #333;
 }
