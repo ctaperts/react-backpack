@@ -8,37 +8,38 @@ class Sidebar extends Component {
     render = () => {
         return (
           <Aux>
-          <nav class={classes.Sidebar}>
+          <nav className={classes.Sidebar}>
             <div className={classes.Nav}>
               <ul>
                 <li>
-                  <Link to={'/login'}>Login</Link>
-                </li>
-                <li>
-                  <Link to={'/to-do'}>To Do App</Link>
-                </li>
-                <li>
-                  <Link to={'/blog'}>Blog</Link>
-                </li>
-                <li>
-                  <Link to={'/contact'}>Contact</Link>
-                </li>
-                <li>
-                  <Link to={'/about'}>About</Link>
+                  <Link to={'/'}>Home</Link>
                 </li>
                 <li>
                   <Link to={'/more-info'}>More Info</Link>
                 </li>
                 <li>
-                  <Link to={'/'}>Home</Link>
+                  <Link to={'/about'}>About</Link>
                 </li>
+                <li>
+                  <Link to={'/contact'}>Contact</Link>
+                </li>
+                <li>
+                  <Link to={'/blog'}>Blog</Link>
+                </li>
+                <li>
+                  <Link to={'/to-do'}>To Do App</Link>
+                </li>
+                <div className={classes.Collapse}>
+                  <li>
+                    <a>
+                      	&lt; &lt;
+                    </a>
+                  </li>
+                </div>
               </ul>
             </div>
           </nav>
-          <div class={classes.Collapse}>
-            Collapse
-          </div>
-          </Aux>
+        </Aux>
         );
     }
 }

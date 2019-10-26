@@ -36,7 +36,7 @@ class Login extends Component {
         <Textbox>
           <form onSubmit={this.handleSubmit}>
             <p>
-              <div class={classes.LoginField}>
+              <div className={classes.LoginField}>
                 <strong>Username </strong>
                 <input type="text" value={this.state.username} onChange={(event) => this.handleChange(event, "username")} />
                 <br />
