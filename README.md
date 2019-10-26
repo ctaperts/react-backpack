@@ -23,6 +23,3 @@ npm run prod
 # Run pm2
 npm run pm2
 ```
-
-## TODO
-- apollo
