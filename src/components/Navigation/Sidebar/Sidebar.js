@@ -3,10 +3,13 @@ import {Link} from 'react-router-dom';
 
 import classes from './Sidebar.scss';
 
+import AuthContext from '../../../context/auth-context';
+
 class Sidebar extends Component {
   state = {
     collapsed: false
   }
+  static contextType = AuthContext;
   // when changing other state to new state don't use this, will still work but
   // not recommended, and won't guarantee the update
   // handleCollapse = () => {
@@ -30,20 +33,24 @@ class Sidebar extends Component {
                 </Link>
               </li>
               <li>
-                <Link to={'/more-info'}>
-                  {this.state.collapsed ? 'M' : 'More Info'}
-                </Link>
-              </li>
-              <li>
                 <Link to={'/about'}>
                   {this.state.collapsed ? 'A' : 'About'}
                 </Link>
               </li>
-              <li>
-                <Link to={'/contact'}>
-                  {this.state.collapsed ? 'C' : 'Contact'}
-                </Link>
-              </li>
+              {!this.context.authenticated ? null :
+              <Fragment>
+                <li>
+                  <Link to={'/more-info'}>
+                    {this.state.collapsed ? 'M' : 'More Info'}
+                  </Link>
+                </li>
+                <li>
+                  <Link to={'/contact'}>
+                    {this.state.collapsed ? 'C' : 'Contact'}
+                  </Link>
+                </li>
+              </Fragment>
+              }
               <li>
                 <Link to={'/blog'}>
                   {this.state.collapsed ? 'B' : 'Blog'}
