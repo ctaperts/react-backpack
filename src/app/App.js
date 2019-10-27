@@ -11,7 +11,7 @@ import Contact from '../containers/Contact/Contact';
 import Blogs from '../containers/Blogs/Blogs';
 import ToDoItems from '../containers/ToDoItems/ToDoItems'
 import MoreInfo from '../containers/MoreInfo/MoreInfo'
-import Auth from '../hoc/Auth/Auth';
+import LoginContext from '../hoc/Login/Login';
 import AuthContext from '../context/auth-context';
 
 import classes from './App.scss';
@@ -38,14 +38,18 @@ const Routes = () => {
 
 
 export default class App extends Component {
+  // componentDidMount() {
+  //   // check local storage auth
+  //   this.AuthAutoSignin()
+  // }
   render = () => {
     return (
       <section>
-        <Auth>
+        <LoginContext>
           <Layout>
             <Routes/>
           </Layout>
-        </Auth>
+        </LoginContext>
       </section>
     )
   }

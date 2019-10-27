@@ -1,63 +1,88 @@
-import React, { Component } from 'react';
-import { withRouter } from 'react-router-dom';
+import axios from 'axios';
 
-import AuthContext from '../../context/auth-context';
+// timer to clear authentication after x minutes
+export const AuthSetTimeout = (expirationTime) => {
+  setTimeout(() => {
+    // logoutHandler();
+    AuthClearLocalState();
+  }, expirationTime * 60000);
+};
 
-class Auth extends Component {
-  state = {
-    authenticated: false,
-    // user level type:
-    // 0 reporter
-    // 1 user
-    // 2 admin
-    // 3 super admin
-    userType: 0
+// DEMO authenticate and store response token, id, userType, and expiration
+export const DemoAuthenticate = (userId, password) => {
+  const authData = {
+    userId: userId,
+    password: password
+  };
+  let url = 'https://localhost:3001';
+  if (process.env.HOST_URL) {
+    url = process.env.HOST_URL
   }
-
-  logoutHandler = (event) => {
-    event.preventDefault();
-    this.setState((prevState, props) => {
-      return {
-        userType: 0,
-        authenticated: false
-      }
-    });
-    // return home on log out
-    const { history } = this.props;
-    if(history) history.push('/');
-  }
-
-  loginHandler = (event, username, password) => {
-    event.preventDefault();
-    // TODO add expiration time for token and setup timeout wrapper in routes
-    // do stuff here to return jwt
-    //
-    // store jwt in cookie or local storage
-    //
-    // set frontend state,
-    this.setState((prevState, props) => {
-      return {
-        userType: 1,
-        authenticated: true
-      }
-    });
-    // return home on log in
-    const { history } = this.props;
-    if(history) history.push('/');
-  }
-
-  render = () => {
-    return (
-      <AuthContext.Provider value={{
-        authenticated: this.state.authenticated,
-        userType: this.state.userType,
-        login: this.loginHandler,
-        logout: this.logoutHandler
-      }}>
-        {this.props.children}
-      </AuthContext.Provider>
-    )
-  }
+  console.log('Demo localstorage setup')
+  // get expiration time
+  const expirationDate = new Date(new Date().getTime() + 10 * 1000)
+  // set localstorage
+  localStorage.setItem('token', 'demo bearer token');
+  localStorage.setItem('expirationDate', expirationDate);
+  localStorage.setItem('userId', userId);
+  localStorage.setItem('userType', '1');
+  // set timer for user logout
+  AuthSetTimeout(10);
 }
 
-export default withRouter(Auth);
+// authenticate and store response token, id, userType, and expiration
+export const Authenticate = (userId, password) => {
+  const authData = {
+    userId: userId,
+    password: password
+  };
+  let url = 'https://localhost:3001';
+  if (process.env.HOST_URL) {
+    url = process.env.HOST_URL
+  }
+  axios.post(url, authData)
+    .then(response => {
+      // get expiration time
+      const expirationDate = new Date(new Date().getTime() + response.data.expiresIn * 1000)
+      // set localstorage
+      localStorage.setItem('token', response.data.idToken);
+      localStorage.setItem('expirationDate', expirationDate);
+      localStorage.setItem('userId', response.data.localId);
+      localStorage.setItem('userType', response.data.userType);
+      // set timer for user logout
+      AuthSetTimeout(response.data.expiresIn);
+    })
+    .catch(error => {
+      console.log(error.response.data.error);
+    })
+}
+
+// clear local state
+export const AuthClearLocalState = () => {
+  localStorage.removeItem('token');
+  localStorage.removeItem('expirationDate');
+  localStorage.removeItem('userId');
+  localStorage.removeItem('userType');
+}
+
+// check authentication state and updated token and front end timeout timer
+export const AuthCheckState = () => {
+  const token = localStorage.getItem('token')
+  // if no
+  if (!token) {
+    // logoutHandler();
+    AuthClearLocalState();
+  } else {
+    const expirationDate = new Date(localStorage.getItem('expirationDate'));
+    if (expirationDate <= new Date()) {
+      // logoutHandler();
+      AuthClearLocalState();
+    } else {
+      // const userId = localStorage.getItem('userId')
+      // get new token and update backend authentication timeout
+      // authUpdateToken(userId, token)
+      // reset frontend expiration timer to logout user
+      AuthSetTimeout((expirationDate.getTime() - new Date().getTime()) / 60000 );
+    }
+  }
+};
