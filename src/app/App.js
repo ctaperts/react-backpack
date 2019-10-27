@@ -11,6 +11,7 @@ import Contact from '../containers/Contact/Contact';
 import Blogs from '../containers/Blogs/Blogs';
 import ToDoItems from '../containers/ToDoItems/ToDoItems'
 import MoreInfo from '../containers/MoreInfo/MoreInfo'
+import AuthContext from '../context/auth-context';
 
 import classes from './App.scss';
 
@@ -29,11 +30,52 @@ const Routes = () => (
 
 
 export default class App extends Component {
+  state = {
+    authenticated: false,
+    // user level type:
+    // 0 reporter
+    // 1 user
+    // 2 admin
+    // 3 super admin
+    userType: 0
+  }
+  logoutHandler = (event, userType) => {
+    event.preventDefault();
+    this.setState((prevState, props) => {
+      return {
+        userType: 0,
+        authenticated: false
+      }
+    });
+  }
+  loginHandler = (event, username, password) => {
+    event.preventDefault();
+    console.log(this.state.authenticated);
+    // do stuff here to return jwt
+    //
+    console.log(username, password);
+    // store jwt in cookie or local storage
+    //
+    // set frontend state
+    this.setState((prevState, props) => {
+      return {
+        userType: 1,
+        authenticated: true
+      }
+    });
+  }
   render = () => {
     return (
       <section>
         <Layout>
-          <Routes/>
+          <AuthContext.Provider value={{
+            authenticated: this.state.authenticated,
+            userType: this.state.userType,
+            login: this.loginHandler,
+            logout: this.logoutHandler
+            }}>
+            <Routes/>
+          </AuthContext.Provider>
         </Layout>
       </section>
     )
