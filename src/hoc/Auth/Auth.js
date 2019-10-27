@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 
 import AuthContext from '../../context/auth-context';
 
-export default class Auth extends Component {
+class Auth extends Component {
   state = {
     authenticated: false,
     // user level type:
@@ -12,6 +13,7 @@ export default class Auth extends Component {
     // 3 super admin
     userType: 0
   }
+
   logoutHandler = (event) => {
     event.preventDefault();
     this.setState((prevState, props) => {
@@ -20,7 +22,11 @@ export default class Auth extends Component {
         authenticated: false
       }
     });
+    // return home on log out
+    const { history } = this.props;
+    if(history) history.push('/');
   }
+
   loginHandler = (event, username, password) => {
     event.preventDefault();
     // TODO add expiration time for token and setup timeout wrapper in routes
@@ -35,7 +41,11 @@ export default class Auth extends Component {
         authenticated: true
       }
     });
+    // return home on log in
+    const { history } = this.props;
+    if(history) history.push('/');
   }
+
   render = () => {
     return (
       <AuthContext.Provider value={{
@@ -49,3 +59,5 @@ export default class Auth extends Component {
     )
   }
 }
+
+export default withRouter(Auth);

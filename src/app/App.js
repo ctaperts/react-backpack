@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, useContext } from 'react';
 import { Redirect, Route } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
@@ -12,21 +12,29 @@ import Blogs from '../containers/Blogs/Blogs';
 import ToDoItems from '../containers/ToDoItems/ToDoItems'
 import MoreInfo from '../containers/MoreInfo/MoreInfo'
 import Auth from '../hoc/Auth/Auth';
+import AuthContext from '../context/auth-context';
 
 import classes from './App.scss';
 
-const Routes = () => (
-  <AnimatedSwitch>
-    <Route exact path="/" component={Home} />
-    <Route exact path="/login" component={Login} />
-    <Route exact path="/about" component={About} />
-    <Route path="/contact" component={Contact}/>
-    <Route path="/blog" component={Blogs}/>
-    <Route path="/to-do" component={ToDoItems}/>
-    <Route path="/more-info" component={MoreInfo}/>
-    <Redirect to="/" />
-  </AnimatedSwitch>
-)
+const Routes = () => {
+  const authContext = useContext(AuthContext);
+  return (
+    <AnimatedSwitch>
+      <Route exact path="/" component={Home} />
+      <Route exact path="/login" component={Login} />
+      <Route exact path="/about" component={About} />
+      <Route path="/blog" component={Blogs}/>
+      <Route path="/to-do" component={ToDoItems}/>
+      {!authContext.authenticated ? null :
+      <React.Fragment>
+        <Route path="/more-info" component={MoreInfo}/>
+        <Route path="/contact" component={Contact}/>
+      </React.Fragment>
+      }
+      <Redirect to="/" />
+    </AnimatedSwitch>
+  )
+}
 
 
 export default class App extends Component {

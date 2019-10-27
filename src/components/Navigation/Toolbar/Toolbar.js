@@ -8,10 +8,6 @@ class Toolbar extends Component {
 
   static contextType = AuthContext;
 
-  testHandler = () => {
-    console.log('123');
-  }
-
   render = () => {
     return (
       <nav>
