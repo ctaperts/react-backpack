@@ -11,6 +11,7 @@ import Contact from '../containers/Contact/Contact';
 import Blogs from '../containers/Blogs/Blogs';
 import ToDoItems from '../containers/ToDoItems/ToDoItems'
 import MoreInfo from '../containers/MoreInfo/MoreInfo'
+import Auth from '../hoc/Auth/Auth';
 
 import classes from './App.scss';
 
@@ -32,9 +33,11 @@ export default class App extends Component {
   render = () => {
     return (
       <section>
-        <Layout>
-          <Routes/>
-        </Layout>
+        <Auth>
+          <Layout>
+            <Routes/>
+          </Layout>
+        </Auth>
       </section>
     )
   }

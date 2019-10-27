@@ -1,4 +1,56 @@
-.LoginField {
-  padding-top: 20%;
-  text-align: center;
+
+form {
+    background: #fff;
+    width: 200px;
+    padding: 20px 10px;
+    border-radius: 6px;
+    border: solid 1px black;
+    /* box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.15),
+        inset 0px -5px 10px rgba(0, 0, 0, 0.05); */
+    margin: 10% auto;
+}
+
+.Field {
+    margin-bottom: 20px;
+}
+
+form .Field:last-child {
+    margin-bottom: 0px;
+}
+
+label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+    cursor: text;
+}
+
+textarea,
+input[type="text"],
+input[type="password"] {
+    width: 189px;
+    display: block;
+    padding: 5px 5px;
+    border-radius: 0px;
+    border: solid 1px black;
+    color: #555;
+    /* box-shadow: inset 0px 1px 4px rgba(0, 0, 0, 0.15);*/
+
+}
+
+textarea {
+    height: 50px;
+    font: 10pt arial;
+}
+
+textarea:focus,
+input[type="text"]:focus,
+input[type="password"]:focus {
+    box-shadow: inset 0px 1px 4px rgba(0, 0, 0, 0.15),
+        0px 0px 5px rgba(50, 153, 255, 0.5);
+    border: solid 1px #3299FF;
+}
+
+button {
+  margin-left: 33%;
 }

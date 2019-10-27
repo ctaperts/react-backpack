@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import Helmet from "react-helmet";
 import { TransitionGroup, CSSTransition, Transition } from 'react-transition-group';
 
-import Aux from '../../hoc/Aux/Aux';
+
 
 import Jumbotron from '../../components/Jumbotron/Jumbotron';
 import Button from '../../components/Button/Button';
@@ -215,7 +215,7 @@ class Home extends Component {
       </Modal>
     )
     return (
-      <Aux>
+      <Fragment>
         {transitionModal}
         {cssModal}
         <Helmet title="Home Title"/>
@@ -232,7 +232,7 @@ class Home extends Component {
         </CSSTransition>
         <Textbox>
           <p style={{fontSize: "25px"}}>
-            <strong>Components include:</strong>
+            <strong>Component, Fragments include:</strong>
             <br/>
             Transition
             <br/>
@@ -279,7 +279,7 @@ class Home extends Component {
         <Jumbotron imageURL="//placehold.it/1024x700/333/555?text=|" size="small">
           <div className={classes.CenterBox}><Button btnType="Clear" clicked={() => this.modalCssHandler()}>TransitionGroup</Button></div>
         </Jumbotron>
-      </Aux>
+      </Fragment>
     );
   }
 }
