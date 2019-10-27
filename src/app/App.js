@@ -39,8 +39,9 @@ export default class App extends Component {
     // 3 super admin
     userType: 0
   }
-  logoutHandler = (event, userType) => {
+  logoutHandler = (event) => {
     event.preventDefault();
+    console.log(this.state.authenticated);
     this.setState((prevState, props) => {
       return {
         userType: 0,
@@ -67,16 +68,16 @@ export default class App extends Component {
   render = () => {
     return (
       <section>
-        <Layout>
-          <AuthContext.Provider value={{
+        <AuthContext.Provider value={{
             authenticated: this.state.authenticated,
             userType: this.state.userType,
             login: this.loginHandler,
             logout: this.logoutHandler
-            }}>
+          }}>
+          <Layout>
             <Routes/>
-          </AuthContext.Provider>
-        </Layout>
+          </Layout>
+        </AuthContext.Provider>
       </section>
     )
   }

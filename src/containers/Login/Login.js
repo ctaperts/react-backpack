@@ -12,6 +12,8 @@ class Login extends Component {
     password: ''
   }
 
+  static contextType = AuthContext;
+
   handleChange = (event, inputType) => {
     if (inputType === 'username') {
       this.setState({username: event.target.value});
@@ -26,26 +28,22 @@ class Login extends Component {
     return (
       <Fragment>
         <Helmet title="Login"/>
-        <AuthContext.Consumer>
-          {(context) =>
-            <form onSubmit={(event) => context.login(event, this.state.username, this.state.password)}>
-              <div className={classes.Field}>
-                <label alt="username">
-                  Username
-                </label>
-                <input type="text" value={this.state.username} onChange={(event) => this.handleChange(event, "username")} />
-              </div>
-              <div className={classes.Field}>
-                <label alt="password">Password
-                </label>
-                <input type="password" value={this.state.password} onChange={(event) => this.handleChange(event, "password")} />
-              </div>
-              <Button type="submit" value="Submit" btnType="Clear">
-                Login
-              </Button>
-            </form>
-          }
-        </AuthContext.Consumer>
+        <form onSubmit={(event) => this.context.login(event, this.state.username, this.state.password)}>
+          <div className={classes.Field}>
+            <label alt="username">
+              Username
+            </label>
+            <input type="text" value={this.state.username} onChange={(event) => this.handleChange(event, "username")} />
+          </div>
+          <div className={classes.Field}>
+            <label alt="password">Password
+            </label>
+            <input type="password" value={this.state.password} onChange={(event) => this.handleChange(event, "password")} />
+          </div>
+          <Button type="submit" value="Submit" btnType="Clear">
+            Login
+          </Button>
+        </form>
       </Fragment>
     );
   }
