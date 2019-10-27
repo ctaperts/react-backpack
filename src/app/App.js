@@ -41,7 +41,6 @@ export default class App extends Component {
   }
   logoutHandler = (event) => {
     event.preventDefault();
-    console.log(this.state.authenticated);
     this.setState((prevState, props) => {
       return {
         userType: 0,
@@ -51,13 +50,12 @@ export default class App extends Component {
   }
   loginHandler = (event, username, password) => {
     event.preventDefault();
-    console.log(this.state.authenticated);
+    // TODO add expiration time for token and setup timeout wrapper in routes
     // do stuff here to return jwt
     //
-    console.log(username, password);
     // store jwt in cookie or local storage
     //
-    // set frontend state
+    // set frontend state,
     this.setState((prevState, props) => {
       return {
         userType: 1,
