@@ -7,10 +7,12 @@
 - CSS modules
 - SASS
 - Helmet
-- Hot Reloading
+- HMR (Hot Module Reloading)
 - React Transition Groups
 - PWA
 - Compression
+- Demo login setup with local storage
+- react hooks
 
 ## Run
 ```
