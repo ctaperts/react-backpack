@@ -1,9 +1,9 @@
 const path = require('path');
 const webpack = require('webpack');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+// const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const StatsPlugin = require('stats-webpack-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
 const OfflinePlugin = require('offline-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
@@ -48,46 +48,63 @@ module.exports = [
       rules: commonLoader.concat([
         {
           test: /\.scss$/,
-          use: ExtractTextPlugin.extract({
-            fallback: 'style-loader',
-            use: [
-              {
-                loader: 'css-loader',
-                options: {
-                  modules: true,
-                  importLoaders: 1,
-                  modules: {
-                    localIdentName: '[hash:base64:10]',
-                  },
-                  sourceMap: false,
-                }
-              },
-              {
-                loader: 'sass-loader'
+          use: [
+            {
+              loader: MiniCssExtractPlugin.loader,
+              options: {
+                modules: true,
+                importLoaders: 1,
+                modules: {
+                  localIdentName: '[hash:base64:10]',
+                },
+                sourceMap: false,
               }
-            ]
-          })
+            },
+            {
+              loader: 'css-loader',
+              options: {
+                modules: true,
+                importLoaders: 1,
+                modules: {
+                  localIdentName: '[hash:base64:10]',
+                },
+                sourceMap: false,
+              }
+            },
+            {
+              loader: 'sass-loader'
+            }
+          ]
         }
       ]),
     },
     plugins: [
+      new OptimizeCssAssetsPlugin({
+        cssProcessorOptions: {discardComments: {removeAll: true}}
+      }),
+      new StatsPlugin('stats.json', {
+        chunkModules: true,
+        modules: true,
+        chunks: true,
+        exclude: [/node_modules[\\\/]react/],
+      }),
+      new MiniCssExtractPlugin({
+        // Options similar to the same options in webpackOptions.output
+        // both options are optional
+        filename: 'styles.css'
+      }),
       new CompressionPlugin({
-        asset: "[path].gz[query]",
+        filename: "[path].gz[query]",
         algorithm: "gzip",
         test: /\.js$|\.css$|\.html$/,
         threshold: 10240,
         minRatio: 0.8
-      }),
-      new ExtractTextPlugin({
-        filename: 'styles.css',
-        allChunks: true
       }),
       new webpack.DefinePlugin({
         'process.env': {
           NODE_ENV: '"production"'
         }
       }),
-      new CleanWebpackPlugin(distDir),
       new webpack.optimize.OccurrenceOrderPlugin(),
       new CopyWebpackPlugin([
         { from: 'src/assets/icons', to: 'icons/' },
@@ -154,17 +171,6 @@ module.exports = [
           ]
         }
       ]),
-    },
-    plugins: [
-      new OptimizeCssAssetsPlugin({
-        cssProcessorOptions: {discardComments: {removeAll: true}}
-      }),
-      new StatsPlugin('stats.json', {
-        chunkModules: true,
-        modules: true,
-        chunks: true,
-        exclude: [/node_modules[\\\/]react/],
-      }),
-    ]
+    }
   }
 ];
