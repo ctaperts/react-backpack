@@ -50,9 +50,6 @@ module.exports = [
             {
               loader: 'css-loader',
               options: {
-                minimize: {
-                  safe: true
-                },
                 modules: true,
                 importLoaders: 1,
                 modules: {
